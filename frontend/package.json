@@ -1,0 +1,33 @@
+{
+  "name": "keqing_site_frontend",
+  "version": "1.0.0",
+  "description": "Keqing site frontend",
+  "scripts": {
+    "start": "webpack --watch --config config/webpack.config.js --env mode=dev",
+    "build": "npm install && webpack --config config/webpack.config.js --env mode=prod"
+  },
+  "keywords": [
+    "Keqing",
+    "js",
+    "site",
+    "webpack",
+    "frontend"
+  ],
+  "author": "Kushnir E.",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.2",
+    "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
+    "firebase": "^9.6.1",
+    "glob": "^8.0.3",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "node-sass": "^7.0.1",
+    "nodemon": "^2.0.12",
+    "sass-loader": "^13.0.2",
+    "toastify-js": "^1.11.2",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2"
+  }
+}

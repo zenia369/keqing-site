@@ -1,0 +1,11 @@
+{
+  "name": "keqing_site",
+  "version": "1.0.0",
+  "scripts": {
+    "prebuild": "cd backend && npm run build",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm run start",
+    "fe:start": "cd backend && start npm run start && cd ../frontend && start npm run start",
+    "be:watch": "cd backend && npm run dev"
+  }
+}
