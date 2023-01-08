@@ -11,60 +11,41 @@ const pictures = require("../controllers/pictures");
 const profile = require("../controllers/profile");
 const character = require("../controllers/character");
 
-router.get("/", (req, res) => {
-  const fileName = Path.resolve(__dirname, `../public/pages/home/index.html`);
+const ROOT_PAGE = Path.resolve(__dirname, "../client/public/pages");
 
-  res.sendFile(fileName);
-});
+router.get("/", (req, res) => res.sendFile(Path.resolve(ROOT_PAGE, "./home/index.html")));
 
 router.get("/myWife", (req, res) => res.redirect("/my-wife"));
-router.get("/my-wife", (req, res) => {
-  //new name router
-  const fileName = Path.resolve(__dirname, `../public/pages/myWife/index.html`);
-
-  res.sendFile(fileName);
-});
+router.get("/my-wife", (req, res) => res.sendFile(Path.resolve(ROOT_PAGE, "./myWife/index.html")));
 
 router.get("/aboutMe", (req, res) => res.redirect("/about-me"));
-router.get("/about-me", (req, res) => {
-  //new name router
-  const fileName = Path.resolve(__dirname, `../public/pages/aboutMe/index.html`);
-
-  res.sendFile(fileName);
-});
+router.get("/about-me", (req, res) =>
+  res.sendFile(Path.resolve(ROOT_PAGE, "./aboutMe/index.html"))
+);
 
 router.get("/autorsReview", (req, res) => res.redirect("/autors-review"));
-router.get("/autors-review", (req, res) => {
-  //new name router
-  const fileName = Path.resolve(__dirname, `../public/pages/autorsReview/index.html`);
+router.get("/autors-review", (req, res) =>
+  res.sendFile(Path.resolve(ROOT_PAGE, "./autorsReview/index.html"))
+);
 
-  res.sendFile(fileName);
-});
+router.get("/login?:continuePath", loginMiddlewar, (req, res) =>
+  res.sendFile(Path.resolve(ROOT_PAGE, "./login/index.html"))
+);
 
-router.get("/login?:continuePath", loginMiddlewar, (req, res) => {
-  const fileName = Path.resolve(__dirname, `../public/pages/login/index.html`);
+router.get("/registration", (req, res) =>
+  res.sendFile(Path.resolve(ROOT_PAGE, "./registration/index.html"))
+);
 
-  res.sendFile(fileName);
-});
+router.get("/userProfile", (req, res) => res.redirect("/user/profile"));
+router.get("/user/profile", securedUserRouter, profile);
 
-router.get("/registration", (req, res) => {
-  let { url } = req;
+router.get("/characters/:name", securedUserRouter, character);
 
-  const fileName = Path.resolve(__dirname, `../public/pages/${url}/index.html`);
-
-  res.sendFile(fileName);
-});
+router.get("/teyvat-through-picture", pictures);
 
 router.get("/logout", (req, res) => {
   res.clearCookie("session");
   res.redirect("/");
 });
-
-router.get("/userProfile", (req, res) => res.redirect("/user/profile"));
-router.get("/user/profile", securedUserRouter, profile); //new name router
-
-router.get("/characters/:name", securedUserRouter, character);
-
-router.get("/teyvat-through-picture", pictures);
 
 module.exports = router;
