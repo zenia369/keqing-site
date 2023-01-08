@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Привіт, і це Keqing-site wife page. Семпай може тут знайти багато-багато фото своєї героїні.">
+    <meta property="og:title" content="Keqing-site wife page">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://keqing-site.herokuapp.com/pages/home/img/Keqing.png">
+    <meta property="og:description" content="Привіт, і це Keqing-site wife page. Семпай може тут знайти багато-багато фото своєї героїні.">
+    <title>{{title}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merienda&family=Open+Sans&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            }
+            html {
+            scroll-behavior: smooth;
+            }
+            body {
+            font-family: "Open Sans", sans-serif;
+            box-shadow: 1px 8px 30px 3px rgba(125, 32, 161, 0.2) inset;
+            }
+            a {
+            text-decoration: none;
+            }
+            .container {
+            padding: 0 50px;
+            height: 100vh;
+            max-height: 100vh;
+            overflow: hidden;
+            }
+            .first-screen.up {
+            margin-top: -100vh;
+            }
+            .screen {
+            transition: transform 2s ease-in-out;
+            }
+            .first-screen {
+            padding-top: 25px;
+            }
+            .first-screen__title__name {
+            font-family: "Merienda", cursive;
+            font-size: 5rem;
+            font-weight: 500;
+            text-align: center;
+            }
+            .first-screen__title__text {
+            margin-top: 1rem;
+            gap: 5rem;
+            padding: 0px 40px;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+            }
+            .first-screen__title__text p {
+            padding: 10px 15px;
+            }
+            .first-screen__title__text p span {
+            margin-left: 10px;
+            font-size: 25px;
+            text-decoration: underline;
+            }
+            .first-screen__title__text__wrappImg {
+            height: fit-content;
+            position: relative;
+            flex: 1;
+            }
+            .first-screen__title__text__wrappImg img {
+            position: absolute;
+            height: 90vh;
+            transform: translate3d(-135px, -220px, 0);
+            z-index: -1;
+            filter: drop-shadow(0px 0px 10px rgba(230, 152, 240, 0.752941)) brightness(1);
+            }
+            .first-screen__title__text__wrappMain {
+            flex: 3;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right: 35px;
+            }
+            .first-screen__title__text__wrappMain::before {
+            position: absolute;
+            content: "";
+            display: block;
+            width: 50px;
+            height: 50px;
+            background-color: #e698f0;
+            clip-path: polygon(0 0, 0 54%, 0 100%, 20% 100%, 20% 20%, 100% 20%, 100% 0, 50% 0);
+            filter: blur(30px);
+            top: 0;
+            left: 0;
+            }
+            .first-screen__title__text__wrappMain::after {
+            position: absolute;
+            content: "";
+            display: block;
+            width: 50px;
+            height: 50px;
+            background-color: #e698f0;
+            clip-path: polygon(80% 80%, 0 80%, 0 100%, 100% 100%, 100% 0, 80% 0);
+            right: 35px;
+            bottom: 0;
+            z-index: -2;
+            filter: blur(30px);
+            }
+            .first-screen__video {
+            margin-top: 40px;
+            }
+            .first-screen__video__wrapp {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            }
+            .first-screen__video__wrapp__btn {
+            background-color: white;
+            font-size: 15px;
+            border: 2px solid #d3a1ec;
+            padding: 10px 25px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease-in;
+            }
+            .first-screen__video__wrapp__btn:hover {
+            background-color: #d3a1ec;
+            color: white;
+            }
+            .first-screen__nextScreen {
+            background-color: #d3a1ec;
+            width: 100%;
+            }
+            .visibility {
+                display: none !important;
+            }
+            .second-screen__video-box {
+                position: fixed;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                visibility: hidden;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+            }
+    </style>
+    <link rel="stylesheet" href='/pages/wife/styles/style.css' type="text/css" >
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js" integrity="sha512-wT7uPE7tOP6w4o28u1DN775jYjHQApdBnib5Pho4RB0Pgd9y7eSkAV1BTqQydupYDB9GBhTcQQzyNMPMV3cAew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</head>
