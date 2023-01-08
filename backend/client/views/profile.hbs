@@ -1,0 +1,223 @@
+<nav class="header">
+  <div class="containerBar">
+    <a href="/" class="containerBar-home"><span>Home page:/Profile</span></a>
+    <ul class="containerBar-list">
+      <li><a href="/myWife">My wife</a></li>
+      <li><a href="/aboutMe">About Me</a></li>
+      <li><a href="/autorsReview">Author Review</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <section class="futures">
+    <div class="futures__btns">
+      <a href="/logout" class="futures__btns__logout">
+        Log out
+      </a>
+    </div>
+  </section>
+  <section class="main">
+    <div class="main__first__section">
+      <div class="main__first__section__card" style="background-image: url({{user.card}});">
+        <div class="main__first__section__card__settings" id="settings-card">
+          <form id="form-card">
+            <input id="newName" type="text" placeholder="New name" />
+            <div class="form-city">
+              <label for="city">New city</label>
+              <select name="city" id="city">
+                <option value="" disabled selected>Choose</option>
+                <option value="Mondstadt">Mondstadt</option>
+                <option value="Liyue">Liyue</option>
+                <option value="Inazuma">Inazuma</option>
+              </select>
+            </div>
+            <div class="from-elemental">
+              <label for="elemental">New elemental</label>
+              <select name="elemental" id="elemental">
+                <option value="" disabled selected>Choose</option>
+                <option value="Pyro">Pyro</option>
+                <option value="Hydro">Hydro</option>
+                <option value="Anemo">Anemo</option>
+                <option value="Electro">Electro</option>
+                <option value="Cryo">Cryo</option>
+                <option value="Geo">Geo</option>
+              </select>
+            </div>
+            <input type="submit" value="зберегти" />
+          </form>
+        </div>
+        <div class="main__first__section__card__wrapper__image">
+          <i
+            class="fad fa-cog main__first__section__card__wrapper__image-setting"
+            id="btn-card-ss"
+          ></i>
+          <div class="main__first__section__card__wrapper__image-wrapper">
+            <div
+              class="main__first__section__card__wrapper__image-wrapper__border"
+              id="avatar-card"
+            >
+              <div
+                class="main__first__section__card__wrapper__image-wrapper__border-content"
+                style="background-image: url({{user.avatar}});"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <ul class="main__first__section__card__wrapper__info">
+          <li>Your name: <span id="name">{{user.name}}</span></li>
+          <li>ID: <span id="uid">{{user.id}}</span></li>
+          <li>City: <span id="city">{{user.city}}</span></li>
+          <li>Elemental: <span id="elemental">{{user.element}}</span></li>
+        </ul>
+      </div>
+      <div class="main__first__section__info">
+        <ul class="main__first__section__info__wrapper" id="characters">
+          {{#each user.stand}}
+            <li
+              class="main__first__section__info__wrapper__card"
+              data-name="{{this.name}}"
+              data-id="{{@index}}"
+            >
+              <div
+                class="main__first__section__info__wrapper__card__main"
+                style="background-image: url({{this.images.small}});"
+                id="image"
+              >
+                <img id="element" src="{{this.element}}" alt="Element {{this.name}}" />
+              </div>
+              <p
+                id="name"
+                class="main__first__section__info__wrapper__card__footer"
+              >{{this.name}}</p>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="gallery">
+    <div class="gallery_head">
+      <h2>
+        Твої збережені ❤
+      </h2>
+      <div class="wrapp-edit-btns d-none">
+        <button class="btn-edit-gallery-submit">
+          підтвердити
+          <i class="fa-solid fa-check"></i>
+        </button>
+        <button class="btn-edit-gallery-cancel">
+          скасувати
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      {{#if user.favorites}}
+        <button class="btn-edit-gallery">
+          редагувати
+          <i class="fa-solid fa-pen"></i>
+        </button>
+      {{else}}
+        <button class="d-none btn-edit-gallery">
+          редагувати
+          <i class="fa-solid fa-pen"></i>
+        </button>
+      {{/if}}
+    </div>
+
+    {{#if user.favorites}}
+      <ul class="gallery_wrapp">
+        {{#each user.favorites}}
+          <li>
+            <label class="container">
+              <input type="checkbox" />
+              <i class="fa-solid fa-circle-dot"></i>
+              <i class="fa-solid fa-circle-check"></i>
+            </label>
+            <a href="{{this.bigLink}}" target="_blank">
+              <img loading="lazy" src="{{this.link}}" alt="keqing-site-image" />
+            </a>
+          </li>
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    {{#if user.favorites}}
+      <div class="d-none gallery_preload" id="gallery_preload">
+        <button>
+          завантажити ще
+        </button>
+        <div class="lds-heart active-preload"><div></div></div>
+      </div>
+    {{else}}
+      <div class="d-none gallery_preload" id="gallery_preload">
+        <button>
+          завантажити ще
+        </button>
+        <div class="lds-heart active-preload"><div></div></div>
+      </div>
+      <div class="gallery_empty">
+        <h3>Поки нічого не побачив</h3>
+        <a href="/myWife">
+          обери
+        </a>
+      </div>
+    {{/if}}
+
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer__wrapper">
+    <div class="footer__wrapper-text">
+      <i class="far fa-flag"></i>
+      <p>По запитаням звертатись у формі рецензії.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="cart-characters" id="carts">
+  <div class="modal"></div>
+  <div class="cart-characters-wrapp">
+    <i class="fa-solid fa-circle-xmark" id="close-modal"></i>
+    <div class="cart-characters-wrapp__header">
+      <ul class="cart-characters-wrapp__header-list">
+        <li class="d-none">Фото для карти</li>
+        <li class="d-none">Стенд з героями</li>
+      </ul>
+    </div>
+    <div class="cart-characters-wrapp__cards">
+      <div class="cart-characters-wrapp__cards__user d-none">
+        <ul id="choose-new-card">
+          {{#each charactersList}}
+            <li
+              class="cart-characters-wrapp__cards__user-item"
+              data-src={{this.images.big}}
+              data-card={{this.card}}
+            >
+              <img src={{this.images.big}} alt="For card {{this.name}}" />
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="cart-characters-wrapp__cards__characters d-none">
+        <ul id="choose-new-character">
+          {{#each charactersList}}
+            <li class="cart-characters-wrapp__cards__characters__card" data-name="{{this.name}}">
+              <div
+                class="cart-characters-wrapp__cards__characters__card-main"
+                style="background-image: url({{this.images.small}});"
+                id="image"
+              >
+                <img id="element" src={{this.element}} alt="Element {{this.name}}" />
+              </div>
+              <p
+                id="name"
+                class="cart-characters-wrapp__cards__characters__card-footer"
+              >{{this.name}}</p>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
