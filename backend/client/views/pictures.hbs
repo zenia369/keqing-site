@@ -1,0 +1,147 @@
+<nav class="header">
+  <div class="containerBar">
+    <a href="/" class="containerBar-home"><span>Home page:/Teyvat</span></a>
+    <ul class="containerBar-list">
+      <li><a href="/myWife">My wife</a></li>
+      <li><a href="/aboutMe">About Me</a></li>
+      <li>
+        <a href="/userProfile" title="Your profile">
+          <div class="containerBar-list__img"></div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<main>
+  <section class="filter_wrapp">
+    <div class="filter">
+      <h2>Фільтри</h2>
+      <div class="filter__options">
+        {{#each filter}}
+          {{#if this.items.length}}
+            <div data-name="{{this.nameID}}" class="filter__options__item filter-group-item">
+              <h5>{{this.name}}:</h5>
+              <div class="filter__options__item_wrapp">
+                {{#each this.items}}
+                  <button
+                    type="button"
+                    data-option="{{this.value}}"
+                    class="filter-group-item-option"
+                  >
+                    <label>
+                      {{#if this.checked}}
+                        <input checked="{{this.checked}}" type="checkbox" />
+                      {{else}}
+                        <input data-check="{{this.checked}}" type="checkbox" />
+                      {{/if}}
+                      <div><span></span></div>
+                      <p>{{this.value}}</p>
+                    </label>
+                  </button>
+                {{/each}}
+              </div>
+            </div>
+          {{/if}}
+        {{/each}}
+      </div>
+      <h2 class="settings">Налаштування</h2>
+      <div class="settings__options">
+        <div class="settings__options__item">
+          <h5>Ліміт:</h5>
+          <div class="settings__options__item_wrapp">
+            <input
+              class="filter_range"
+              type="range"
+              min="10"
+              max="40"
+              step="10"
+              value="{{rangeValue}}"
+            />
+            <p class="filter_range_value">{{rangeValue}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="filter__btn">
+      <button>Зберегти</button>
+      <span class="filter__btn__marker hidden">0</span>
+    </div>
+  </section>
+  <section class="gallery">
+    {{#each pictures}}
+      <img src="{{this.path}}" alt="Teyvat picture by id: {{this.id}}" />
+    {{/each}}
+  </section>
+  <section class="image-screen">
+    <p class="image-screen__close">Закрити</p>
+    <svg
+      width="11px"
+      height="20px"
+      viewBox="0 0 11 20"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      data-moveside="left"
+      class="big-image-move-btn"
+    >
+      <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Rounded" transform="translate(-548.000000, -3434.000000)">
+          <g id="Navigation" transform="translate(100.000000, 3378.000000)">
+            <g
+              id="-Round-/-Navigation-/-arrow_back_ios"
+              transform="translate(442.000000, 54.000000)"
+            >
+              <g>
+                <polygon id="Path" opacity="0.87" points="0 0 24 0 24 24 0 24"></polygon>
+                <path
+                  d="M16.62,2.99 C16.13,2.5 15.34,2.5 14.85,2.99 L6.54,11.3 C6.15,11.69 6.15,12.32 6.54,12.71 L14.85,21.02 C15.34,21.51 16.13,21.51 16.62,21.02 C17.11,20.53 17.11,19.74 16.62,19.25 L9.38,12 L16.63,4.75 C17.11,4.27 17.11,3.47 16.62,2.99 Z"
+                  id="🔹-Icon-Color"
+                  fill="#1D1D1D"
+                ></path>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </svg>
+    <div class="image-screen__wrapp">
+      <img src="" alt="img" />
+    </div>
+    <svg
+      width="11px"
+      height="20px"
+      viewBox="0 0 11 20"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      data-moveside="right"
+      class="big-image-move-btn"
+    >
+      <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Rounded" transform="translate(-345.000000, -3434.000000)">
+          <g id="Navigation" transform="translate(100.000000, 3378.000000)">
+            <g
+              id="-Round-/-Navigation-/-arrow_forward_ios"
+              transform="translate(238.000000, 54.000000)"
+            >
+              <g>
+                <polygon id="Path" opacity="0.87" points="24 24 0 24 0 0 24 0"></polygon>
+                <path
+                  d="M7.38,21.01 C7.87,21.5 8.66,21.5 9.15,21.01 L17.46,12.7 C17.85,12.31 17.85,11.68 17.46,11.29 L9.15,2.98 C8.66,2.49 7.87,2.49 7.38,2.98 C6.89,3.47 6.89,4.26 7.38,4.75 L14.62,12 L7.37,19.25 C6.89,19.73 6.89,20.53 7.38,21.01 Z"
+                  id="🔹-Icon-Color"
+                  fill="#1D1D1D"
+                ></path>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </section>
+  <section class="loader-wrapper">
+    <p>Loading...</p>
+    <span class="loader"></span>
+  </section>
+</main>
+
+<footer></footer>
