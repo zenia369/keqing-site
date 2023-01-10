@@ -10,13 +10,12 @@ router.post("/message", async (req, res) => {
     if (validator.validate(`${body.email}`)) {
       const { st, check } = await Email.send(body);
 
-      res.status(st).json({ check });
+      res.status(st).json({ result: check });
     } else {
-      res.status(201).json({ check: false });
-      console.warn("Erorr in send message");
+      res.status(401).json({ result: false });
     }
   } catch (error) {
-    res.status(201).json({ check: false });
+    res.status(500).json({ result: false });
     console.warn("Erorr in send message:", error);
   }
 });
