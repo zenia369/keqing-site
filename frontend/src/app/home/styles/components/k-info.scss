@@ -1,0 +1,123 @@
+.k-info {
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    &-gallery {
+      position: relative;
+      &__listWrapp {
+        width: 470px;
+        height: 130px;
+        border: 1px solid transparent;
+        border-image: $border;
+        border-image-slice: 1;
+        margin-right: 44px;
+        position: relative;
+        &-box {
+          width: 100%;
+          height: 100%;
+          overflow-x: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &__list {
+            display: none;
+            align-items: center;
+            animation: 9s linear 0.5s infinite alternate scroll;
+            animation-play-state: paused;
+            &-active {
+              animation-play-state: running !important;
+            }
+            &__item {
+              display: block;
+              width: 15%;
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+      &__btn {
+        width: 134px;
+        height: 30px;
+        background: $purple-8;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translate(291%, -268%) rotate(-90deg);
+        position: absolute;
+        z-index: 1;
+        cursor: pointer;
+        transition: color 2s linear;
+        &:hover {
+          a {
+            color: $white;
+          }
+        }
+        a {
+          text-decoration: none;
+          color: $black;
+          text-align: center;
+          font-size: 13px;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      &__listWrapp::before {
+        content: "Галерея Кец";
+        font-size: 20px;
+        font-family: "Montserrat", sans-serif;
+        padding: 10px 20px;
+        border-radius: 20px;
+        background-color: $purple-10;
+        width: 165px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translate(10%, -50%);
+        position: absolute;
+        color: $black;
+        z-index: 1;
+        opacity: 0.9;
+      }
+    }
+
+    &-audio {
+      width: 360px;
+      height: 130px;
+      border: 1px solid transparent;
+      border-image: $border;
+      border-image-slice: 1;
+      &::before {
+        content: "Голосові історії :";
+        font-size: 20px;
+        font-family: "Montserrat", sans-serif;
+        padding: 10px 20px;
+        border-radius: 20px;
+        background-color: $purple-10;
+        width: 168px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        color: $black;
+        justify-content: center;
+        transform: translate(10%, -50%);
+      }
+      &__wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        img {
+          height: 35px;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

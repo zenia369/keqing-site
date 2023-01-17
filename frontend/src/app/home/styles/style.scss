@@ -1,0 +1,25 @@
+@import "@Styles/variables.scss";
+@import "@Styles/initial.scss";
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+@import "@Styles/components/nav.scss";
+@import "@Styles/components/footer.scss";
+@import "./components/header.scss";
+@import "./components/loader.scss";
+@import "./components/picturesPreview.scss";
+@import "./components/k-info.scss";
+
+@keyframes scroll {
+  from {
+    transform: translateX(1%);
+  }
+  to {
+    transform: translateX(-83%);
+  }
+}

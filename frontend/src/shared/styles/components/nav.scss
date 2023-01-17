@@ -1,0 +1,62 @@
+.navigation {
+  margin-top: 20px;
+  height: 4.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 3px solid $silver;
+  border-radius: 20px;
+  padding: 0 2.2rem;
+  &__home {
+    font-size: 30px;
+    text-decoration-color: $purple-10;
+    transition: text-decoration-color 0.3s ease-out;
+    span {
+      font-weight: 800;
+      background: linear-gradient(to top, $white, $purple-6 135%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    &:hover {
+      text-decoration-color: $purple-13;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 1.5rem;
+    &__item {
+      transition: text-shadow 0.3s ease-out, box-shadow 0.3s ease-out;
+      &:hover {
+        text-shadow: 0px 0px 20px #d5c2d9c7, 0 0 20px #e3d1e7c7, 0 0 40px #ebdcefc7;
+      }
+      &__img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-size: cover;
+        cursor: pointer;
+        background: #fa8c38c9;
+        background-image: url(https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2Fmain%2Fimage%2FCharacter_Aether_Thumb.webp?alt=media&token=a68d0421-1d99-4ae3-8b8d-14671eb235e9);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: all 0.3s ease-in;
+        &:hover {
+          box-shadow: 0px 0px 20px #d5c2d9c7, 0 0 20px #e3d1e7c7, 0 0 40px #ebdcefc7;
+        }
+      }
+      a {
+        font-weight: 600;
+        text-decoration: none;
+        color: $silver;
+        font-size: 20px;
+        background: linear-gradient(to top, #fff, $purple-6 135%);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+    }
+  }
+}

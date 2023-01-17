@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Привіт, і це Keqing-site. Семпай може тут знайти багато цікавого контенту(фото, відео) по світу ігор, манг та щіпотку цікавого функціоналу."
+    />
+    <meta property="og:title" content="Keqing-site | Kushnir" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://keqing-site.herokuapp.com/" />
+    <meta
+      property="og:image"
+      content="https://keqing-site.herokuapp.com/pages/home/img/Keqing.png"
+    />
+    <meta
+      property="og:description"
+      content="Привіт, і це Keqing-site. Семпай може тут знайти багато цікавого контенту(фото, відео) по світу ігор, манг та щіпотку цікавого функціоналу."
+    />
+    <title>Keqing | Kushnir</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"
+      integrity="sha512-wT7uPE7tOP6w4o28u1DN775jYjHQApdBnib5Pho4RB0Pgd9y7eSkAV1BTqQydupYDB9GBhTcQQzyNMPMV3cAew=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <nav class="navigation">
+      <a href="/" class="navigation__home"><span>Home page:</span></a>
+      <ul class="navigation__list">
+        <li class="navigation__list__item"><a href="/myWife">My wife</a></li>
+        <li class="navigation__list__item"><a href="/aboutMe">About Me</a></li>
+        <li class="navigation__list__item">
+          <a href="/userProfile" title="Your profile">
+            <div class="navigation__list__item__img"></div>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <header class="header">
+      <div class="header__photo">
+        <img width="410" height="410" src="./pages/home/img/Keqing.png" alt="Keqing" />
+      </div>
+      <div class="header__content">
+        <div class="header__content__title">
+          <h1 class="header__content__title__name">Keqing/Ке Цин</h1>
+          <img width="80" height="80" src="./pages/home/img/electro.png" alt="elrctro" />
+        </div>
+        <div class="header__content__text">
+          <p class="header__content__text__main">
+            Найголовніший трудоголік Лі Ює. На її думку працювати треба за десятьох, а якість має
+            бути найкращою. Також сама вона каже що час богів пройшов, люди мають відповідати за
+            свою долю, - виявляється боги любять таких скептиків.
+          </p>
+          <p class="header__content__text__sub">
+            *Взагалі, вона чудова і приємна дівчина. Обожнюю ЇЇ!!
+          </p>
+        </div>
+        <div class="header__content__k-visit">
+          <a href="/characters/keqing" target="_blank">дуже цікаво, хочу ще..</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="k-info">
+        <div class="k-info__wrapper">
+          <div class="k-info__wrapper-gallery">
+            <div class="k-info__wrapper-gallery__listWrapp">
+              <div class="k-info__wrapper-gallery__listWrapp-box">
+                <div id="loader">
+                  <div class="lds-spinner">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+                <div class="k-info__wrapper-gallery__listWrapp-box__list"></div>
+              </div>
+            </div>
+            <div class="k-info__wrapper-gallery__btn">
+              <a href="/characters/keqing" target="_blank">ще...</a>
+            </div>
+          </div>
+          <div class="k-info__wrapper-audio">
+            <div class="k-info__wrapper-audio__wrapper">
+              <img src="./pages/home/img/electro.png" alt="electro" />
+              <audio src="./pages/home/audio/KeqingVoice.mp3" controls></audio>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </section>
+      <section class="pictures-preview">
+        <div class="pictures-preview__title">
+          <h4>Тайват Через Фото</h4>
+        </div>
+        <div class="pictures-preview__wraper">
+          <div class="pictures-preview__item" style="--i: 1">
+            <img
+              src="pages/pictures/images/pictures/photo_2022-09-15_13-21-32.jpg"
+              alt="pictures preview image"
+            />
+          </div>
+          <div class="pictures-preview__item" style="--i: 2">
+            <img
+              src="pages/pictures/images/pictures/photo_2022-09-15_13-22-20.jpg"
+              alt="pictures preview image"
+            />
+          </div>
+          <div class="pictures-preview__item" style="--i: 3">
+            <img
+              src="pages/pictures/images/pictures/photo_2022-09-15_13-22-32.jpg"
+              alt="pictures preview image"
+            />
+          </div>
+          <div class="pictures-preview__item" style="--i: 4">
+            <img
+              src="pages/pictures/images/pictures/photo_2022-09-15_13-22-37.jpg"
+              alt="pictures preview image"
+            />
+          </div>
+          <div class="pictures-preview__item" style="--i: 5">
+            <img
+              src="pages/pictures/images/pictures/photo_2022-09-15_13-22-48.jpg"
+              alt="pictures preview image"
+            />
+          </div>
+          <div class="pictures-preview__item" style="--i: 6">
+            <img
+              src="pages/pictures/images/pictures/photo_2022-09-15_13-22-51.jpg"
+              alt="pictures preview image"
+            />
+          </div>
+          <div class="pictures-preview__item" style="--i: 7">
+            <img
+              src="pages/pictures/images/pictures/photo_2022-09-15_13-22-54.jpg"
+              alt="pictures preview image"
+            />
+          </div>
+          <div class="pictures-preview__item" style="--i: 8">
+            <img
+              src="pages/pictures/images/pictures/photo_2022-09-15_13-23-04.jpg"
+              alt="pictures preview image"
+            />
+          </div>
+          <div class="pictures-preview__item" style="--i: 9">
+            <img
+              src="pages/pictures/images/pictures/photo_2022-09-15_13-23-10.jpg"
+              alt="pictures preview image"
+            />
+          </div>
+          <div class="pictures-preview__item" style="--i: 10">
+            <img
+              src="pages/pictures/images/pictures/photo_2022-09-15_13-23-14.jpg"
+              alt="pictures preview image"
+            />
+          </div>
+        </div>
+        <hr />
+        <a href="/teyvat-through-picture" class="pictures-preview__link">View all »</a>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__wrapper">
+        <div class="footer__wrapper-text">
+          <i class="far fa-flag"></i>
+          <p>По запитаням звертатись у формі рецензії.</p>
+        </div>
+        <div class="footer__wrapper-link">
+          <i class="fas fa-envelope"></i>
+          <a href="/autorsReview">Відгук автору</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
