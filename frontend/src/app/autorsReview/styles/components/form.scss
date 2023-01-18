@@ -1,0 +1,104 @@
+@mixin input-label-state {
+  &:valid {
+    & ~ label {
+      color: green;
+    }
+  }
+  &:invalid {
+    & ~ label {
+      color: red;
+    }
+  }
+  & ~ label {
+    top: 3px;
+    font-size: 13px;
+    opacity: 0.5;
+  }
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+  column-gap: 100px;
+  row-gap: 20px;
+  --ui-p: 5px;
+  --ui-h: 55px;
+  --ui-label-h: 29px;
+  fieldset {
+    outline: none;
+    border: none;
+  }
+  label {
+    display: inline-block;
+  }
+  textarea {
+    resize: vertical;
+  }
+  &__input-ui {
+    position: relative;
+    border: 1px solid $purple-6;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+    box-shadow: 0 0 0 0 rgba($color: $purple-8, $alpha: 0.5);
+    &:focus-within {
+      box-shadow: 0 0 0 5px rgba($color: $purple-8, $alpha: 0.5);
+    }
+    label {
+      position: absolute;
+      padding: 0 var(--ui-p);
+      top: calc(var(--ui-h) / 2 - (var(--ui-label-h) / 2));
+      left: 15px;
+      font-size: 18px;
+      transition: top 0.2s ease, font-size 0.2s ease, opacity 0.2s ease;
+    }
+    input,
+    textarea {
+      outline: none;
+      border: none;
+      width: 100%;
+      height: var(--ui-h);
+      padding: calc(var(--ui-p) * 4);
+      font-size: 16px;
+      &:focus {
+        @include input-label-state;
+      }
+      &:not(:placeholder-shown) {
+        @include input-label-state;
+      }
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+  }
+  &__email {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    button[type="submit"] {
+      background-color: $purple-7;
+      border-radius: 30px;
+      padding: 10px;
+      border: none;
+      color: $white;
+      box-shadow: 0 0 10px 5px $purple-8;
+      transition: all 0.5s ease-in;
+      &:disabled {
+        cursor: no-drop;
+      }
+      &:not(:disabled):hover {
+        cursor: pointer;
+        background-color: $purple;
+        box-shadow: 0px 0px 12px 4px $purple-8;
+      }
+    }
+  }
+  &__text {
+    flex: 2;
+    textarea {
+      min-height: 330px;
+    }
+  }
+}

@@ -1,0 +1,137 @@
+.reaction {
+  position: fixed;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 35px;
+  left: 35px;
+  min-width: 200px;
+  min-height: 115px;
+  &--item {
+    border: 1px solid $purple-5;
+    background: $purple-10;
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 200px;
+    min-height: 115px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    &.progress {
+      img {
+        position: absolute;
+        left: 0;
+        top: 30px;
+        animation: 4s linear reaction-progress infinite;
+      }
+    }
+    &.error {
+      img {
+        position: absolute;
+        left: 0;
+        top: 30px;
+        animation: 4s linear reaction-error infinite;
+      }
+    }
+    &.success {
+      img {
+        animation: 1.5s ease-out reaction-success;
+      }
+    }
+    &.hidden {
+      transform: translateY(50px);
+      opacity: 0;
+      pointer-events: none;
+      z-index: -1;
+      visibility: hidden;
+    }
+    &.active {
+      order: -1;
+    }
+    &--typing {
+      text-align: center;
+      text-transform: capitalize;
+      font-size: 16px;
+      font-family: monospace;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid;
+      animation: text-typing 3.5s steps(18), text-blink 0.5s step-end infinite alternate;
+    }
+    &--img {
+      width: 70px;
+    }
+  }
+}
+
+@keyframes text-typing {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes text-blink {
+  50% {
+    border-color: transparent;
+  }
+}
+@keyframes reaction-progress {
+  to {
+    transform: translateX(120px);
+  }
+}
+@keyframes reaction-error {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+  20.1% {
+    transform: translate(50px, 15px);
+  }
+  40.2% {
+    transform: translate(90px, -10px);
+  }
+  60.4% {
+    transform: translate(140px, 15px);
+  }
+  80.4% {
+    transform: translate(170px, -10px);
+  }
+}
+@keyframes reaction-success {
+  from {
+    transform: translateY(70px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes clippath {
+  0%,
+  100% {
+    clip-path: inset(0 0 95% 0);
+  }
+  25% {
+    clip-path: inset(0 95% 0 0);
+  }
+  50% {
+    clip-path: inset(95% 0 0 0);
+  }
+  75% {
+    clip-path: inset(0 0 0 95%);
+  }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authors review</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navigation">
+      <a href="/" class="navigation__home"><span>Home page:/Authors review</span></a>
+      <ul class="navigation__list">
+        <li class="navigation__list__item"><a href="/myWife">My wife</a></li>
+        <li class="navigation__list__item"><a href="/aboutMe">About Me</a></li>
+        <li class="navigation__list__item">
+          <a href="/userProfile" title="Your profile">
+            <div class="navigation__list__item__img"></div>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <section>
+        <form class="form">
+          <fieldset class="form__email">
+            <div class="form__input-ui">
+              <input
+                type="email"
+                id="id-email"
+                placeholder="email"
+                pattern="/^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/g"
+                name="email"
+                required
+              />
+              <label for="id-email">Електронна адреса</label>
+            </div>
+            <button type="submit" disabled>Send</button>
+          </fieldset>
+          <fieldset class="form__text">
+            <div class="form__input-ui">
+              <textarea
+                id="id-text"
+                placeholder="text"
+                minlength="10"
+                required
+                name="text"
+              ></textarea>
+              <label for="id-text">Пиши тут</label>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+      <section class="reaction">
+        <div class="reaction--item hidden progress">
+          <p class="reaction--item--typing">Sending message...</p>
+          <img
+            class="reaction--item--img"
+            src="./pages/autorsReview/img/mini-keqing-fly-removebg-preview.png"
+            alt="nimi-keqing"
+          />
+        </div>
+        <div class="reaction--item hidden error">
+          <p class="reaction--item--typing">Error sending message.</p>
+          <img
+            class="reaction--item--img"
+            src="./pages/autorsReview/img/mini-keqing-leiin.png"
+            alt="nimi-keqing"
+          />
+        </div>
+        <div class="reaction--item hidden success">
+          <p class="reaction--item--typing">message sended!</p>
+          <img
+            class="reaction--item--img"
+            src="./pages/autorsReview/img/mini-keqing-fan.png"
+            alt="nimi-keqing"
+          />
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__wrapper">
+        <div class="footer__wrapper-text">
+          <i class="far fa-flag"></i>
+          <p>По запитаням звертатись у формі рецензії.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

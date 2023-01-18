@@ -1,0 +1,15 @@
+@import "@Styles/variables.scss";
+@import "@Styles/initial.scss";
+
+@import "@Styles/components/nav.scss";
+@import "@Styles/components/footer.scss";
+@import "./components/form.scss";
+@import "./components/reaction.scss";
+
+main {
+  min-height: 80vh;
+}
+
+.section-1 {
+  display: none;
+}
