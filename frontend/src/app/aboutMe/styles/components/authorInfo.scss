@@ -1,0 +1,27 @@
+.author-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+  flex-wrap: wrap;
+  &__golds {
+    max-width: 570px;
+    p {
+      font-weight: 500;
+      font-size: 20px;
+    }
+  }
+  &__personal {
+    &__name {
+      font-weight: 900;
+      text-decoration: underline;
+      font-size: 30px;
+    }
+    &__list {
+      margin-top: 20px;
+      margin-left: 15px;
+      list-style: circle;
+      font-size: 23px;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import "@Styles/variables.scss";
+@import "@Styles/initial.scss";
+
+@import "@Styles/components/nav.scss";
+@import "@Styles/components/footer.scss";
+@import "./components/authorInfo.scss";
+@import "./mixins.scss";
+
+body {
+  @include keqing-city;
+  color: $white;
+}
+
+main {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
