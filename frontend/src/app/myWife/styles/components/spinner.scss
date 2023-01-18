@@ -1,0 +1,24 @@
+.spinner-grow {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  background-color: currentColor;
+  border-radius: 50%;
+  opacity: 0;
+  animation: 0.75s linear infinite spinner-grow;
+  width: 3rem;
+  height: 3rem;
+  color: $purple-8;
+}
+@keyframes spinner-grow {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

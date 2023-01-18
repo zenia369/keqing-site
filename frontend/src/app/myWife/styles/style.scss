@@ -1,0 +1,16 @@
+@import "@Styles/variables.scss";
+@import "@Styles/initial.scss";
+
+@import "./components/nav.scss";
+@import "./components/spinner.scss";
+@import "./components/listcards.scss";
+
+.header {
+  margin-top: 50px;
+  &__title {
+    font-size: 36px;
+    background: linear-gradient(to top, $white, $purple-6 135%);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}
