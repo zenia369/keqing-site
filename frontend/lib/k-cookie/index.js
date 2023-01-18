@@ -16,4 +16,4 @@ class KCookie {
   }
 }
 
-module.exports = new KCookie();
+export default new KCookie();
