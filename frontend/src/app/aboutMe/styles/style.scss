@@ -4,10 +4,11 @@
 @import "@Styles/components/nav.scss";
 @import "@Styles/components/footer.scss";
 @import "./components/authorInfo.scss";
-@import "./mixins.scss";
 
 body {
-  @include keqing-city;
+  background: url(../img/keqing-city.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   color: $white;
 }
 
