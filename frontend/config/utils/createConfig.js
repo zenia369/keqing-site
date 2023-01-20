@@ -34,13 +34,13 @@ module.exports = (mode) => {
               loader: "css-loader",
               options: {
                 url: false,
-                sourceMap: true,
+                sourceMap: isDev,
               },
             },
             {
               loader: "sass-loader",
               options: {
-                sourceMap: true,
+                sourceMap: isDev,
               },
             },
           ],
