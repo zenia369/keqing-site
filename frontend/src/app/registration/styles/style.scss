@@ -1,0 +1,16 @@
+@import "@Styles/variables.scss";
+@import "@Styles/initial.scss";
+
+@import "./components/header.scss";
+@import "./components/message.scss";
+@import "./components/form.scss";
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(
+      transparentize($color: $black, $amount: 0.9),
+      transparentize($color: $black, $amount: 0.9)
+    ),
+    url(../img/background.jfif) center center / cover no-repeat;
+  transition: backdrop-filter 1s ease-in-out;
+}

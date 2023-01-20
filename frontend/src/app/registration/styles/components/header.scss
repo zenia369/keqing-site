@@ -1,0 +1,25 @@
+header {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    color: $white;
+  }
+  .login {
+    text-decoration: none;
+    margin-right: 0;
+    align-self: flex-end;
+    color: $purple-7;
+    font-weight: 500;
+    border: 1px solid $purple-7;
+    border-radius: 5px;
+    padding: 5px;
+    background: transparent;
+    transition: color 0.3s ease, background 0.3s ease-in;
+    &:hover {
+      color: $white;
+      background: $purple-7;
+    }
+  }
+}
