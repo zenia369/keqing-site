@@ -1,0 +1,126 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  &__title {
+    margin-top: 70px;
+    margin-bottom: 90px;
+    text-align: center;
+    & > h2 {
+      font-family: "Merienda", cursive;
+      font-size: 48px;
+      font-weight: 500;
+      color: $black;
+    }
+    & > p {
+      margin-top: 55px;
+      font-weight: 500;
+      font-size: 24px;
+      color: $purple-7;
+      text-transform: capitalize;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input[type="email"] {
+      margin-bottom: 30px;
+    }
+    input {
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 16px;
+      font-weight: 500;
+      color: $black;
+      border-bottom: 3px solid $purple-6;
+      padding: 5px;
+      width: 300px;
+      height: 40px;
+      &:is(:focus):valid {
+        border-color: $green;
+      }
+      &:is(:focus):invalid {
+        border-color: $red;
+      }
+    }
+    button[type="submit"] {
+      margin-top: 40px;
+      width: 205px;
+      height: 50px;
+      border-radius: 28px;
+      background: $purple-6;
+      color: $white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease-in;
+      &:not(:disabled):hover {
+        background: darken($color: $purple-6, $amount: 30);
+      }
+      &:disabled {
+        cursor: no-drop;
+      }
+    }
+  }
+  &__another {
+    text-align: center;
+    margin: 15px 0;
+    & > p {
+      margin-bottom: 5px;
+    }
+    &__reset {
+      &.hidden {
+        display: none;
+      }
+      button {
+        outline: none;
+        border: none;
+        background: transparent;
+        color: $ligth-red;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    &__links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 10px;
+      a {
+        text-decoration: none;
+      }
+      button {
+        outline: none;
+        border: none;
+        background: transparent;
+      }
+      a,
+      button {
+        font-size: 16px;
+        color: $purple-7;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        &:hover {
+          transform: scale(1.1);
+          color: $purple-6;
+        }
+      }
+    }
+  }
+  &__reaction {
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    &.active {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+}

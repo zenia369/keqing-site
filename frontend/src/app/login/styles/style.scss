@@ -1,0 +1,18 @@
+@import "@Styles/variables.scss";
+@import "@Styles/initial.scss";
+
+@import "./components/content.scss";
+@import "./components/images.scss";
+@import "./components/message.scss";
+
+body {
+  & > main {
+    width: 100%;
+    margin: 0;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+}
