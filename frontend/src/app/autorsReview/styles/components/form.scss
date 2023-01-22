@@ -1,12 +1,12 @@
 @mixin input-label-state {
   &:valid {
     & ~ label {
-      color: green;
+      color: $green;
     }
   }
   &:invalid {
     & ~ label {
-      color: red;
+      color: $red;
     }
   }
   & ~ label {
