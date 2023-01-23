@@ -1,13 +1,13 @@
 @mixin page-button {
   background-color: $white;
   font-size: 15px;
-  border: 2px solid #d3a1ec;
+  border: 2px solid $purple-9;
   padding: 10px 25px;
   cursor: pointer;
   text-transform: uppercase;
   transition: all 0.3s ease-in;
   &:hover {
-    background-color: #d3a1ec;
+    background-color: $purple-9;
     color: $white;
   }
 }
@@ -15,15 +15,15 @@
 @mixin scroll-bar {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: rgba(155, 155, 1555, 0.5) transparent;
+  scrollbar-color: transparentize($color: $purple-7, $amount: 0.5) transparent;
   &::-webkit-scrollbar {
     width: 10px;
   }
   &::-webkit-scrollbar-track {
-    background: rgba(192, 168, 197, 0.5);
+    background: transparentize($color: $purple-7, $amount: 0.5);
   }
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(198, 100, 215, 0.5);
+    background-color: transparentize($color: $purple-6, $amount: 0.5);
     border-radius: 20px;
     border: transparent;
   }

@@ -1,15 +1,16 @@
-@import "@Styles/variables.scss";
-@import "@Styles/initial.scss";
+@import '@Styles/variables.scss';
+@import '@Styles/initial.scss';
 
-@import "./components/loader.scss";
-@import "./components/message.scss";
-@import "./components/kImages.scss";
-@import "./components/kVideo.scss";
-@import "./components/kHeader.scss";
+@import './components/loader.scss';
+@import './components/message.scss';
+@import './components/kImages.scss';
+@import './components/kVideo.scss';
+@import './components/kHeader.scss';
 
 body {
   overflow: hidden;
-  box-shadow: 1px 8px 30px 3px rgba(125, 32, 161, 0.2) inset;
+  box-shadow: 1px 8px 30px 3px transparentize($color: $purple-10, $amount: 0.2)
+    inset;
 }
 
 main {
