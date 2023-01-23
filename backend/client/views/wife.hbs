@@ -1,51 +1,5 @@
-<header class="first-screen screen" id="first-screen">
-    {{> wife/header-wife }}
-    <div class="first-screen__video">
-        <div class="first-screen__video__wrapp">
-            <button class="first-screen__video__wrapp__btn">подивитись відео</button>
-            <button class="first-screen__video__wrapp__btn first-screen__video-wrappBtn__next">Всі фото</button>
-        </div>
-    </div>
-
-</header>
-
+    {{> wife/components/kHeader }}
 <main>
-    {{> wife/video-box-wife }}
-    <section class="three-screen screen" id="three-screen">
-        <div class="three-screen__wrapp__btn">
-            <button class="first-screen__video__wrapp__btn three-screen-upBtn">назад</button>
-        </div>
-
-        <div class="load-page">
-            <div class="lds-ripple">
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-
-        <ul class="visibility load-content" id="ul">
-            {{#each images}}
-            <li>
-                <label class="item-container">
-                    <button onclick="(() => saveFavorite('{{this.newLink}}', '{{this.link}}'))()">
-                        <svg viewBox="0 0 512 512">
-                            <path
-                                d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z" />
-                        </svg>
-                    </button>
-                </label>
-                {{#if (when @index '>' 27)}}
-                <a href="{{this.newLink}}" target="_blank">
-                    <img loading="lazy" src="{{this.link}}" alt="keqing-site-image">
-                </a>
-                {{else}}
-                <a href="{{this.newLink}}" target="_blank">
-                    <img src="{{this.link}}" alt="keqing-site-image">
-                </a>
-                {{/if}}
-            </li>
-            {{/each}}
-        </ul>
-
-    </section>
+    {{> wife/components/kVideo }}
+    {{> wife/components/kImages }}
 </main>
