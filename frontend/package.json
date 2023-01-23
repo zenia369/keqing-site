@@ -21,6 +21,7 @@
     "file-loader": "^6.2.0",
     "firebase": "^9.6.1",
     "glob": "^8.0.3",
+    "gsap": "^3.11.4",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
     "node-sass": "^7.0.1",
