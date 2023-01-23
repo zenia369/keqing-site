@@ -9,5 +9,6 @@
       "@Util/*": ["./src/shared/utils/*"]
     }
   },
+  "include": ["src", "config", "lib", ".eslintrc.cjs"],
   "exclude": ["./node_modules"]
 }
