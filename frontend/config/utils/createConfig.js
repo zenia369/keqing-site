@@ -20,7 +20,12 @@ module.exports = (mode) => {
     devtool: isDev ? "source-map" : false,
     plugins: [
       new miniCss({
-        filename: isDev ? "[name]/styles/style.css" : "[name]/styles/style.[hash:6].min.css",
+        filename: ({ chunk }) => {
+          if (chunk.filenameTemplate) {
+            return "[name]/styles/style.css";
+          }
+          return isDev ? "[name]/styles/style.css" : "[name]/styles/style.[hash:6].min.css";
+        },
       }),
       ...generateHtmlTemplatePlugin(),
     ],
@@ -85,6 +90,7 @@ module.exports = (mode) => {
         "@Styles": path.resolve(__dirname, "../../src/shared/styles"),
         "@Shared": path.resolve(__dirname, "../../src/shared/js"),
         "@Lib": path.resolve(__dirname, "../../lib"),
+        "@Util": path.resolve(__dirname, "../../src/shared/utils"),
       },
     },
   };
