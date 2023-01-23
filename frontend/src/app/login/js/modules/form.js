@@ -1,3 +1,4 @@
+import extractUrlParams from "@Util/extractUrlParams";
 import { login, resetPassword, google } from "./fetchAuth";
 import showMessage from "./showMessage";
 
@@ -59,8 +60,7 @@ class Form {
   }
 
   #redirect(uid) {
-    const to =
-      new URLSearchParams(window.location.search.replace("?", "")).get("continuePath") ?? "/";
+    const to = extractUrlParams().get("continuePath") ?? "/";
     setTimeout(() => {
       window.location.assign(`${to}?uid=${uid}`);
     }, 1000);

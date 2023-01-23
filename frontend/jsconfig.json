@@ -5,7 +5,8 @@
       "@*": ["./*"],
       "@Shared/*": ["./src/shared/js/*"],
       "@Styles/*": ["./src/shared/styles/*"],
-      "@Lib/*": ["./lib/*"]
+      "@Lib/*": ["./lib/*"],
+      "@Util/*": ["./src/shared/utils/*"]
     }
   },
   "exclude": ["./node_modules"]
