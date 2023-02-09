@@ -1,9 +1,9 @@
-@import "@Styles/variables.scss";
-@import "@Styles/initial.scss";
+@import '@Styles/variables.scss';
+@import '@Styles/initial.scss';
+@import '@Styles/components/message.scss';
 
-@import "./components/content.scss";
-@import "./components/images.scss";
-@import "./components/message.scss";
+@import './components/content.scss';
+@import './components/images.scss';
 
 body {
   & > main {

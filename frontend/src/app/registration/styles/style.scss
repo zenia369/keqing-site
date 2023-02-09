@@ -1,9 +1,9 @@
-@import "@Styles/variables.scss";
-@import "@Styles/initial.scss";
+@import '@Styles/variables.scss';
+@import '@Styles/initial.scss';
+@import '@Styles/components/message.scss';
 
-@import "./components/header.scss";
-@import "./components/message.scss";
-@import "./components/form.scss";
+@import './components/header.scss';
+@import './components/form.scss';
 
 body {
   min-height: 100vh;

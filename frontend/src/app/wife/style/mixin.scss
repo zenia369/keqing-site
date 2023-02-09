@@ -11,20 +11,3 @@
     color: $white;
   }
 }
-
-@mixin scroll-bar {
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: transparentize($color: $purple-7, $amount: 0.5) transparent;
-  &::-webkit-scrollbar {
-    width: 10px;
-  }
-  &::-webkit-scrollbar-track {
-    background: transparentize($color: $purple-7, $amount: 0.5);
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: transparentize($color: $purple-6, $amount: 0.5);
-    border-radius: 20px;
-    border: transparent;
-  }
-}
