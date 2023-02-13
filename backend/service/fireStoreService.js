@@ -7,9 +7,11 @@ const db = getFirestore();
 
 class UserProfile {
   async changeUserData(cred, uid) {
+    console.log("cred, uid", cred, uid);
     try {
       const snapshot = await db.collection("users").doc(uid).get();
       const data = snapshot.data();
+      console.log("data", data);
 
       const newUserData = {
         ...data,
@@ -19,11 +21,12 @@ class UserProfile {
       const docRef = await db.collection("users").doc(uid);
       await docRef.set(newUserData);
     } catch (error) {
+      console.warn(error);
       throw Error();
     }
   }
 
-  async changeUserDataStand(cred, uid) {
+  async changeUserDataStandByID(cred, uid) {
     try {
       const snapshot = await db.collection("users").doc(uid).get();
       const data = snapshot.data();
@@ -47,6 +50,23 @@ class UserProfile {
       await docRef.set(newUserData);
     } catch (error) {
       throw Error();
+    }
+  }
+
+  async update_user_stand(cred, uid) {
+    try {
+      const snapshot = await db.collection("users").doc(uid).get();
+      const data = snapshot.data();
+
+      const newUserData = {
+        ...data,
+        stand: cred,
+      };
+
+      const docRef = await db.collection("users").doc(uid);
+      await docRef.set(newUserData);
+    } catch (error) {
+      throw Error("Error: saving is failed");
     }
   }
 
@@ -255,4 +275,4 @@ function classes(...args) {
 
 const store = new Store();
 
-module.exports = store
+module.exports = store;
