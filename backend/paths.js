@@ -1,5 +1,5 @@
-const path = require("node:path");
-const fs = require("node:fs");
+const path = require("path");
+const fs = require("fs");
 
 // /etc/secrets/<filename>
 const BUILD_PATH = path.resolve("/etc/secrets/");
