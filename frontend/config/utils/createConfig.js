@@ -67,9 +67,9 @@ module.exports = (mode) => {
               const folderName = relativePath
                 .toString()
                 .trim()
-                .match(/app[\\/\\]([A-z]{1,})/)[1]
+                .match(/app[\\/\\]([A-z]{1,}[\\/\\][A-z]{1,})/)[1]
 
-              return `${folderName}\\img\\${url}`
+              return `${folderName}\\${url}`
             },
           },
         },
@@ -84,9 +84,9 @@ module.exports = (mode) => {
               const folderName = relativePath
                 .toString()
                 .trim()
-                .match(/app[\\/\\]([A-z]{1,})/)[1]
+                .match(/app[\\/\\]([A-z]{1,}[\\/\\][A-z]{1,})/)[1]
 
-              return `${folderName}\\audio\\${url}`
+              return `${folderName}\\${url}`
             },
           },
         },
