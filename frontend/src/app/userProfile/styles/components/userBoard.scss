@@ -19,10 +19,10 @@
     background-size: cover;
     background-position: center;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 5px #eccff1, 0px 0px 0px 2px #ffffff;
+    box-shadow: 0px 0px 10px 5px $purple-8, 0px 0px 0px 2px $white;
     transition: box-shadow 0.5s ease-in-out, background-image 2s linear;
     &:hover {
-      box-shadow: 0px 0px 4px 0px #eccff1, 0px 0px 0px 2px #ffffff;
+      box-shadow: 0px 0px 4px 0px $purple-8, 0px 0px 0px 2px $white;
     }
 
     &__form {
@@ -51,8 +51,7 @@
         &:focus-visible {
           outline: none;
           border: 2px solid transparent;
-          box-shadow: 0px 0px 5px 2px rgb(255, 255, 255),
-            0px 0px 13px 3px rgb(143, 85, 227);
+          box-shadow: 0px 0px 5px 2px $white, 0px 0px 13px 3px $purple-6;
         }
       }
       &__controlls {
@@ -63,7 +62,7 @@
         button {
           cursor: pointer;
           text-transform: uppercase;
-          color: white;
+          color: $white;
           padding: 10px;
           border: none;
           border-radius: 5px;
@@ -72,7 +71,7 @@
           flex: 1;
           background-color: $purpleForLink;
           &:hover {
-            background-color: #ca8cd4;
+            background-color: $purple-7;
           }
         }
         button[type='button'] {
@@ -103,14 +102,14 @@
           min-height: 120px;
           border-radius: 50%;
           overflow: hidden;
-          background: white;
-          border: 1.5px solid #ffbf35d4;
+          background: $white;
+          border: 1.5px solid $orange-1;
           display: flex;
           align-items: center;
           justify-content: center;
           transition: box-shadow 0.3s ease-in-out;
           &:hover {
-            box-shadow: 0px 0px 10px 5px #eccff1;
+            box-shadow: 0px 0px 10px 5px $purple-9;
           }
           &:hover &__item {
             filter: brightness(0.7);
@@ -123,7 +122,7 @@
             min-height: 105px;
             border-radius: 50%;
             overflow: hidden;
-            background: #fa8c38c9;
+            background: $orange-1;
             background-position: center;
             background-size: contain;
             background-repeat: no-repeat;
@@ -137,7 +136,7 @@
           justify-content: center;
           list-style: none;
           gap: 10px;
-          color: white;
+          color: $white;
           & > li {
             text-transform: capitalize;
             display: flex;
@@ -182,7 +181,7 @@
     &__item {
       @include character-card;
       &-active {
-        box-shadow: 0 0 2px 5px #8e08bf;
+        box-shadow: 0 0 2px 5px $purple-5;
       }
     }
   }

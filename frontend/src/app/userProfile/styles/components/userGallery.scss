@@ -1,7 +1,7 @@
 @import '../mixins.scss';
 
 .user-gallery {
-  background-color: #dcabe4;
+  background-color: $purple-8;
   border-radius: 5px;
   margin-bottom: 25px;
   padding-bottom: 25px;
@@ -16,7 +16,7 @@
 
   &__head {
     padding: 20px 10px;
-    color: white;
+    color: $white;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -64,7 +64,7 @@
         cursor: pointer;
         &:hover {
           i {
-            background: #b858b8;
+            background: $purple-6;
           }
         }
         .fa-circle-check {
@@ -90,10 +90,10 @@
           height: fit-content;
           border-radius: 50%;
           font-size: 30px;
-          color: white;
+          color: $white;
           margin: 10px;
           font-weight: normal;
-          background: #f074f0;
+          background: $purple-7;
         }
       }
       &__image {
@@ -119,7 +119,7 @@
     }
   }
   &__empty {
-    color: white;
+    color: $white;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -10,16 +10,16 @@
       text-decoration: none;
       margin-right: 0;
       align-self: flex-end;
-      color: #fde6ff;
+      color: $purple-10;
       font-weight: 500;
-      border: 1px solid #edbaf5;
+      border: 1px solid $purple-8;
       border-radius: 5px;
       padding: 5px;
       background: transparent;
       transition: color 0.3s ease, background 0.3s ease-in;
       &:hover {
-        color: white;
-        background: #edbaf5;
+        color: $white;
+        background: $purple-8;
       }
     }
   }
