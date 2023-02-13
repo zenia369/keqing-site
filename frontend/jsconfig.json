@@ -5,10 +5,10 @@
       "@*": ["./*"],
       "@Shared/*": ["./src/shared/js/*"],
       "@Styles/*": ["./src/shared/styles/*"],
-      "@Lib/*": ["./lib/*"],
+      "@Lib/*": ["./src/lib/*"],
       "@Util/*": ["./src/shared/utils/*"]
     }
   },
-  "include": ["src", "config", "lib", ".eslintrc.cjs"],
+  "include": ["src", "config", ".eslintrc.cjs"],
   "exclude": ["./node_modules"]
 }

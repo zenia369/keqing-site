@@ -1,7 +1,7 @@
-const glob = require("glob");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const glob = require('glob')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const PATH_TO_HTML = "src/app/**/*.html";
+const PATH_TO_HTML = 'src/app/**/*.html'
 
 module.exports = () => {
   return glob
@@ -11,15 +11,15 @@ module.exports = () => {
         name: file.match(/.+\/([a-zA-Z]{1,})\/[a-zA-Z]{1,}.html/)[1],
         fileName: file.match(/.+\/[a-zA-Z]{1,}\/([a-zA-Z]{1,}).html/)[1],
         path: file,
-      };
+      }
     })
     .map(
       (template) =>
         new HtmlWebpackPlugin({
           template: template.path,
-          inject: "body",
+          inject: 'body',
           chunks: [template.name.toString()],
           filename: `${template.name}/${template.fileName}.html`,
         })
-    );
-};
+    )
+}
