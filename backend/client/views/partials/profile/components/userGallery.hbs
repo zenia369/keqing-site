@@ -1,0 +1,117 @@
+<section class="user-gallery">
+  <div class="user-gallery__head">
+    <h2 class="user-gallery__head__title">
+      Твої збережені ❤
+    </h2>
+
+    {{#if user.favorites}}
+      <div class="user-gallery__head__mode-edit">
+        <button class="user-gallery__button user-gallery__head__mode-edit__submit-btn">
+          підтвердити
+          <i class="fa-solid fa-check"></i>
+        </button>
+        <button class="user-gallery__button user-gallery__head__mode-edit__cancel-btn">
+          скасувати
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <button class="user-gallery__button user-gallery__head__edit-btn">
+        редагувати
+        <i class="fa-solid fa-pen"></i>
+      </button>
+    {{/if}}
+  </div>
+
+  {{#if user.favorites}}
+    <ul class="user-gallery__gallery">
+      {{#each user.favorites}}
+        <li class="user-gallery__gallery__item">
+          <label class="user-gallery__gallery__item__toggle">
+            <input type="checkbox" />
+            <i class="fa-solid fa-circle-dot"></i>
+            <i class="fa-solid fa-circle-check"></i>
+          </label>
+          <a href="{{this.bigLink}}" target="_blank" class="user-gallery__gallery__item__image">
+            <img loading="lazy" src="{{this.link}}" alt="keqing-site-image" />
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+    <div class="user-gallery__gallery__load">
+      <button class="user-gallery__button">
+        завантажити ще ({{user.favorites.length}})
+      </button>
+      <div class="gallery__loader"><div></div></div>
+    </div>
+  {{else}}
+    <div class="user-gallery__empty">
+      <h3>Поки нічого не побачив</h3>
+      <a href="/myWife" class="user-gallery__button-link">
+        обери
+      </a>
+    </div>
+  {{/if}}
+</section>
+
+{{!-- <section class="gallery">
+  <div class="gallery_head">
+    <h2>
+      Твої збережені ❤
+    </h2>
+    <div class="wrapp-edit-btns d-none">
+      <button class="btn-edit-gallery-submit">
+        підтвердити
+        <i class="fa-solid fa-check"></i>
+      </button>
+      <button class="btn-edit-gallery-cancel">
+        скасувати
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    {{#if user.favorites}}
+      <button class="btn-edit-gallery">
+        редагувати
+        <i class="fa-solid fa-pen"></i>
+      </button>
+    {{else}}
+      <button class="d-none btn-edit-gallery">
+        редагувати
+        <i class="fa-solid fa-pen"></i>
+      </button>
+    {{/if}}
+  </div>
+
+  {{#if user.favorites}}
+    <ul class="gallery_wrapp">
+      {{#each user.favorites}}
+        <li>
+          <label class="container">
+            <input type="checkbox" />
+            <i class="fa-solid fa-circle-dot"></i>
+            <i class="fa-solid fa-circle-check"></i>
+          </label>
+          <a href="{{this.bigLink}}" target="_blank">
+            <img loading="lazy" src="{{this.link}}" alt="keqing-site-image" />
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  {{/if}}
+
+  {{#if user.favorites}}
+    <div class="d-none gallery_preload" id="gallery_preload">
+      <button>
+        завантажити ще
+      </button>
+      <div class="lds-heart active-preload"><div></div></div>
+    </div>
+  {{else}}
+    <div class="gallery_empty">
+      <h3>Поки нічого не побачив</h3>
+      <a href="/myWife">
+        обери
+      </a>
+    </div>
+  {{/if}}
+
+</section> --}}

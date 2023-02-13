@@ -1,0 +1,33 @@
+@import '@Styles/variables.scss';
+@import '@Styles/initial.scss';
+@import '@Styles/mixins.scss';
+@import '@Styles/components/nav.scss';
+@import '@Styles/components/footer.scss';
+@import '@Styles/components/message.scss';
+
+@import './components/loader.scss';
+@import './components/statusBar.scss';
+@import './components/userBoard.scss';
+@import './components/userGallery.scss';
+@import './components/charactersData.scss';
+@import './components/kOverlay.scss';
+
+html {
+  scroll-behavior: initial;
+}
+
+body {
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2FimageBackground%2Fkeqing-hung-out.jpg?alt=media&token=4fb0156e-2f0a-4b81-abec-b04b3598d947);
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  backdrop-filter: brightness(0.7);
+  @include scroll-bar;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 50px;
+}

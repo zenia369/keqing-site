@@ -1,0 +1,128 @@
+@import '../mixins.scss';
+
+.user-gallery {
+  background-color: #dcabe4;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+
+  &__button {
+    @include gallery-button;
+    &-link {
+      text-decoration: none;
+      @include gallery-button;
+    }
+  }
+
+  &__head {
+    padding: 20px 10px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    &__title {
+      font-weight: 600;
+    }
+    &__mode-edit {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      display: none;
+    }
+  }
+  &__gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    list-style: none;
+    padding: 20px 5px;
+    content-visibility: auto;
+    &__item {
+      height: 26vh;
+      flex-grow: 1;
+      cursor: pointer;
+      width: min-content;
+      opacity: 1;
+      position: relative;
+      transition: filter 0.5s ease-in;
+      &:hover {
+        filter: brightness(0.7);
+      }
+      &__toggle {
+        visibility: hidden;
+        position: absolute;
+        display: flex;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        justify-content: flex-end;
+        cursor: pointer;
+        &:hover {
+          i {
+            background: #b858b8;
+          }
+        }
+        .fa-circle-check {
+          display: none;
+        }
+
+        input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+          &:checked {
+            & ~ .fa-circle-check {
+              display: block;
+            }
+            & ~ .fa-circle-dot {
+              display: none;
+            }
+          }
+        }
+        i {
+          height: fit-content;
+          border-radius: 50%;
+          font-size: 30px;
+          color: white;
+          margin: 10px;
+          font-weight: normal;
+          background: #f074f0;
+        }
+      }
+      &__image {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        img {
+          max-height: 100%;
+          min-width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+    &-mode-edit &__item {
+      filter: none;
+      &__toggle {
+        visibility: visible;
+      }
+    }
+    &__load {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &__empty {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,189 @@
+@import '../mixins.scss';
+
+.user-board {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 2.5rem 0;
+  &__card {
+    width: 450px;
+    min-height: 200px;
+    height: fit-content;
+    position: relative;
+    padding: 1rem;
+    display: grid;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 5px #eccff1, 0px 0px 0px 2px #ffffff;
+    transition: box-shadow 0.5s ease-in-out, background-image 2s linear;
+    &:hover {
+      box-shadow: 0px 0px 4px 0px #eccff1, 0px 0px 0px 2px #ffffff;
+    }
+
+    &__form {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-10px) scale(0.8);
+      transition: visibility 1s linear;
+      position: absolute;
+      border-radius: 10px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      padding: 1rem;
+      background: transparentize($color: $black, $amount: 0.4);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      color: $white;
+      select,
+      input {
+        padding: 5px;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        &:focus-visible {
+          outline: none;
+          border: 2px solid transparent;
+          box-shadow: 0px 0px 5px 2px rgb(255, 255, 255),
+            0px 0px 13px 3px rgb(143, 85, 227);
+        }
+      }
+      &__controlls {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+
+        button {
+          cursor: pointer;
+          text-transform: uppercase;
+          color: white;
+          padding: 10px;
+          border: none;
+          border-radius: 5px;
+        }
+        button[type='submit'] {
+          flex: 1;
+          background-color: $purpleForLink;
+          &:hover {
+            background-color: #ca8cd4;
+          }
+        }
+        button[type='button'] {
+          background-color: transparentize($color: $red, $amount: 0.5);
+          &:hover {
+            background-color: transparentize($color: $red, $amount: 0.2);
+          }
+        }
+      }
+    }
+    &__user {
+      height: 100%;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      justify-items: center;
+      &__info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+        width: 100%;
+        &__avatar {
+          cursor: pointer;
+          width: 120px;
+          height: 120px;
+          min-width: 120px;
+          min-height: 120px;
+          border-radius: 50%;
+          overflow: hidden;
+          background: white;
+          border: 1.5px solid #ffbf35d4;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: box-shadow 0.3s ease-in-out;
+          &:hover {
+            box-shadow: 0px 0px 10px 5px #eccff1;
+          }
+          &:hover &__item {
+            filter: brightness(0.7);
+          }
+
+          &__item {
+            width: 105px;
+            height: 105px;
+            min-width: 105px;
+            min-height: 105px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #fa8c38c9;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            transition: filter 0.3s ease-in-out;
+          }
+        }
+        &__list {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          list-style: none;
+          gap: 10px;
+          color: white;
+          & > li {
+            text-transform: capitalize;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            span {
+              flex: 1;
+              &#user-uid {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                text-transform: none;
+                max-width: 250px;
+              }
+            }
+          }
+        }
+      }
+      &__open-setting-btn {
+        justify-self: flex-start;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        &:hover {
+          color: $purple;
+        }
+        i {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+  &__stand {
+    gap: 20px;
+    list-style: none;
+    width: 25rem;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 75px);
+    &__item {
+      @include character-card;
+      &-active {
+        box-shadow: 0 0 2px 5px #8e08bf;
+      }
+    }
+  }
+}

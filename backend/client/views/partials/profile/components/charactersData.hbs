@@ -1,0 +1,63 @@
+<section class="characters-data">
+  <div class="characters-data__avatarts">
+    <div class="characters-data__head">
+      <h4 class="characters-data__head__title">Фото для картки</h4>
+      <div class="characters-data__head__controlls">
+        <button class="characters-data__head__controlls__submit-btn" title="save">
+          <i class="fa-solid fa-circle-check"></i>
+        </button>
+        <button class="characters-data__head__controlls__close-btn" title="cancel">
+          <i class="fa-solid fa-circle-xmark"></i>
+        </button>
+      </div>
+    </div>
+    <ul class="characters-data__avatarts__list">
+      {{#each charactersList}}
+        <li
+          class="characters-data__avatarts__list__item"
+          data-src={{this.images.big}}
+          data-card={{this.card}}
+        >
+          <img src={{this.images.big}} alt="For card {{this.name}}" loading="lazy" />
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="characters-data__characters">
+    <div class="characters-data__head">
+      <h4 class="characters-data__head__title">Стенд з героями</h4>
+      <div class="characters-data__head__controlls">
+        <button class="characters-data__head__controlls__submit-btn" title="save">
+          <i class="fa-solid fa-circle-check"></i>
+        </button>
+        <button class="characters-data__head__controlls__close-btn" title="cancel">
+          <i class="fa-solid fa-circle-xmark"></i>
+        </button>
+      </div>
+    </div>
+    <ul class="characters-data__characters__list">
+      {{#each charactersList}}
+        <li class="characters-data__characters__list__item" data-name="{{this.name}}">
+          <img
+            id="stand-item-element"
+            src={{this.element}}
+            class="characters-data__characters__list__item__element"
+            alt="Element {{this.name}}"
+            loading="lazy"
+          />
+          <img
+            id="stand-item-photo"
+            src="{{this.images.small}}"
+            class="characters-data__characters__list__item__photo"
+            alt="Character photo"
+            loading="lazy"
+          />
+          <p
+            id="stand-item-name"
+            class="characters-data__characters__list__item__name"
+          >{{this.name}}</p>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</section>

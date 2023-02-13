@@ -1,0 +1,82 @@
+<section class="user-board">
+  <div class="user-board__card" style="background-image: url({{user.card}});">
+    <form class="user-board__card__form">
+      <input
+        name="user-form-new-name"
+        id="user-form-new-name"
+        type="text"
+        placeholder="New name"
+        required
+      />
+      <div class="user-board__card__form__cities">
+        <label for="user-form-city">New city</label>
+        <select name="user-form-city" id="user-form-city" required>
+          <option value="" disabled selected>Choose</option>
+          <option value="Mondstadt">Mondstadt</option>
+          <option value="Liyue">Liyue</option>
+          <option value="Inazuma">Inazuma</option>
+        </select>
+      </div>
+      <div class="user-board__card__form__elements">
+        <label for="user-form-elemental">New elemental</label>
+        <select name="user-form-elemental" id="user-form-elemental" required>
+          <option value="" disabled selected>Choose</option>
+          <option value="Pyro">Pyro</option>
+          <option value="Hydro">Hydro</option>
+          <option value="Anemo">Anemo</option>
+          <option value="Electro">Electro</option>
+          <option value="Cryo">Cryo</option>
+          <option value="Geo">Geo</option>
+        </select>
+      </div>
+      <div class="user-board__card__form__controlls">
+        <button type="submit">зберегти</button>
+        <button type="button">скасувати</button>
+      </div>
+    </form>
+    <div class="user-board__card__user">
+      <div class="user-board__card__user__info">
+        <div class="user-board__card__user__info__avatar" role="button">
+          <div
+            class="user-board__card__user__info__avatar__item"
+            style="background-image: url({{user.avatar}});"
+          ></div>
+        </div>
+        <ul class="user-board__card__user__info__list">
+          <li>Your name: <span id="user-name">{{user.name}}</span></li>
+          <li>ID: <span id="user-uid">{{user.id}}</span></li>
+          <li>City: <span id="user-city">{{user.city}}</span></li>
+          <li>Elemental: <span id="user-elemental">{{user.element}}</span></li>
+        </ul>
+      </div>
+      <button class="user-board__card__user__open-setting-btn">
+        <i class="fad fa-cog"></i>
+      </button>
+    </div>
+  </div>
+
+  <ul class="user-board__stand">
+    {{#each user.stand}}
+      <li
+        class="user-board__stand__item"
+        data-name="{{this.name}}"
+        data-id="{{@index}}"
+        role="button"
+      >
+        <img
+          id="stand-item-element"
+          class="user-board__stand__item__element"
+          src="{{this.element}}"
+          alt="Element {{this.name}}"
+        />
+        <img
+          id="stand-item-photo"
+          src="{{this.images.small}}"
+          class="user-board__stand__item__photo"
+          alt="Character photo"
+        />
+        <p id="stand-item-name" class="user-board__stand__item__name">{{this.name}}</p>
+      </li>
+    {{/each}}
+  </ul>
+</section>
