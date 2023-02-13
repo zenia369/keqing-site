@@ -1,4 +1,5 @@
-const picturesData = require("../data/pictures_data.json");
+const { APP_PICTURES_DATA } = require("../paths");
+const picturesData = require(APP_PICTURES_DATA);
 
 function filterPictures({ limit = 20, offset = 0, ...filterBy }) {
   const filterItemsArray = new Map(Object.entries(filterBy));

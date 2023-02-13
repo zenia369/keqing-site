@@ -1,6 +1,8 @@
 const Path = require("path");
-const { filter } = require("../data/pictures_data.json");
 const { filterPictures } = require("../service/localData.service");
+
+const { APP_PICTURES_DATA } = require("../paths");
+const { filter } = require(APP_PICTURES_DATA);
 
 const pictures = (req, res) => {
   const params = req.query;

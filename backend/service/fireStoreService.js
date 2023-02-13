@@ -1,7 +1,8 @@
 const { getFirestore } = require("firebase-admin/firestore");
 
 const createHashPassword = require("../helpers/createHashPassword");
-const characterList = require("../data/charactersList");
+const { APP_CHARACTERS_LIST } = require("../paths");
+const characterList = require(APP_CHARACTERS_LIST);
 
 const db = getFirestore();
 

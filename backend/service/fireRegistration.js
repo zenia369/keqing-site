@@ -1,8 +1,9 @@
 const { initializeApp } = require("firebase/app");
 const { getAuth, createUserWithEmailAndPassword } = require("firebase/auth");
 
-const firebaseConfig = require("../data/firebaseConfig.json");
 const { createSession } = require("./fireAuth");
+const { APP_FIREBASE_CONFIG } = require("../paths");
+const firebaseConfig = require(APP_FIREBASE_CONFIG);
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);

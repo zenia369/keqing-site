@@ -1,6 +1,8 @@
 const Path = require("path");
 const db = require("../service/fireStoreService");
-const charactersList = require("../data/charactersList");
+
+const { APP_CHARACTERS_LIST } = require("../paths");
+const charactersList = require(APP_CHARACTERS_LIST);
 
 const profile = async (req, res) => {
   try {

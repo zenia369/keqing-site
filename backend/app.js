@@ -6,7 +6,9 @@ const exphbs = require("express-handlebars");
 const csurf = require("csurf");
 const cookieParser = require("cookie-parser");
 const admin = require("firebase-admin");
-const serviceAccount = require("./data/serviceAccountKey");
+
+const { APP_SERVICE_ACCOUNT } = require("./paths");
+const serviceAccount = require(APP_SERVICE_ACCOUNT);
 
 const PORT = process.env.PORT ?? 5000;
 
