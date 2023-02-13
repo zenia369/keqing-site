@@ -4,7 +4,7 @@
   "description": "Keqing site frontend",
   "scripts": {
     "start": "webpack --watch --config config/webpack.config.js --env mode=dev --stats-error-details",
-    "build": "npm install && webpack --config config/webpack.config.js --env mode=prod",
+    "build": "npm install && npm run preview",
     "preview": "webpack --config config/webpack.config.js --env mode=prod",
     "eslint": "eslint --ext .js lib --ext .js src --ext .js config",
     "eslint:fix": "eslint --ext .js lib --ext .js src --ext .js config"
