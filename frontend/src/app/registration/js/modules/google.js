@@ -1,33 +1,34 @@
-import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { initializeApp } from 'firebase/app'
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 
-import firebaseConfig from "../../../../../../backend/data/firebaseConfig.json";
-import showMessage from "./showMessage";
-import state from "./state";
-import authStatus from "./authStatus";
+import showMessage from './showMessage'
+import state from './state'
+import authStatus from './authStatus'
 
-const app = initializeApp(firebaseConfig);
+import APP_FIREBASE_CONFIG from '../../../../../config/firebaseConfig.json'
 
-const auth = getAuth(app);
-auth.languageCode = "uk"; // add ukraine language
+const app = initializeApp(APP_FIREBASE_CONFIG)
 
-const provider = new GoogleAuthProvider();
+const auth = getAuth(app)
+auth.languageCode = 'ukr' // add ukraine language
+
+const provider = new GoogleAuthProvider()
 
 const googleAuthHandler = async () => {
   try {
-    const result = await signInWithPopup(auth, provider);
+    const result = await signInWithPopup(auth, provider)
 
-    const idToken = await auth.currentUser.getIdToken();
-    const { email } = result.user;
+    const idToken = await auth.currentUser.getIdToken()
+    const { email } = result.user
 
-    authStatus();
+    authStatus()
 
-    state.idToken = idToken;
-    state.email = email;
-    state.newUrl = "/google";
+    state.idToken = idToken
+    state.email = email
+    state.newUrl = '/google'
   } catch (error) {
-    showMessage(error.message);
+    showMessage(error.message)
   }
-};
+}
 
-export default googleAuthHandler;
+export default googleAuthHandler

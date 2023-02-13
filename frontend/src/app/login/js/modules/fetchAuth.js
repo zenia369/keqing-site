@@ -1,44 +1,44 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app'
 import {
   getAuth,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
   sendPasswordResetEmail,
-} from "firebase/auth";
-import KFetch from "@Lib/k-fetch";
+} from 'firebase/auth'
+import KFetch from '@Lib/k-fetch'
 
-import firebaseConfig from "../../../../../../backend/data/firebaseConfig.json";
+import APP_FIREBASE_CONFIG from '../../../../../config/firebaseConfig.json'
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+const app = initializeApp(APP_FIREBASE_CONFIG)
+const auth = getAuth(app)
 
-const provider = new GoogleAuthProvider();
+const provider = new GoogleAuthProvider()
 
 const createFetch = async (idToken) => {
-  const { data } = await KFetch.post("auth/login", { idToken });
+  const { data } = await KFetch.post('auth/login', { idToken })
 
-  return data.uid;
-};
+  return data.uid
+}
 
 export const login = async (email, password) => {
-  const { user } = await signInWithEmailAndPassword(auth, email, password);
-  const idToken = await user.getIdToken();
+  const { user } = await signInWithEmailAndPassword(auth, email, password)
+  const idToken = await user.getIdToken()
 
-  const uid = await createFetch(idToken);
+  const uid = await createFetch(idToken)
 
-  return uid;
-};
+  return uid
+}
 
 export const google = async () => {
-  await signInWithPopup(auth, provider);
-  const idToken = await auth.currentUser.getIdToken();
+  await signInWithPopup(auth, provider)
+  const idToken = await auth.currentUser.getIdToken()
 
-  const uid = await createFetch(idToken);
+  const uid = await createFetch(idToken)
 
-  return uid;
-};
+  return uid
+}
 
 export const resetPassword = (email) => {
-  return sendPasswordResetEmail(auth, email);
-};
+  return sendPasswordResetEmail(auth, email)
+}
