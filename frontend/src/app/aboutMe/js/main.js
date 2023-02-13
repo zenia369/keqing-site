@@ -1,8 +1,7 @@
-//IMPORTS
+// IMPORTS
 
-import "../styles/style.scss";
-import "../img/keqing-city.png";
+import '../styles/style.scss'
 
 // END IMPORTS
 
-import "@Shared/userAvatar";
+import '@Shared/userAvatar'

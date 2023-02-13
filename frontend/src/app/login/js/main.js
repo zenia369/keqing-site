@@ -1,11 +1,10 @@
-//IMPORT
-import "../styles/style.scss";
+// IMPORT
+import '../styles/style.scss'
 
-import "../img/reaction.svg";
 // END IMPORT
 
-import { caruselActive } from "./modules/carusel";
-import Form from "./modules/form";
+import { caruselActive } from './modules/carusel'
+import Form from './modules/form'
 
-caruselActive();
-Form.active();
+caruselActive()
+Form.active()

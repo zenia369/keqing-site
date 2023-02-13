@@ -1,9 +1,9 @@
-const createConfig = require("./utils/createConfig");
+const createConfig = require('./utils/createConfig')
 
 module.exports = (env) => {
-  const mode = env.mode !== "prod" ? "development" : "production";
+  const mode = env.mode !== 'prod' ? 'development' : 'production'
 
-  const createdConfig = createConfig(mode);
+  const createdConfig = createConfig(mode)
 
-  return createdConfig;
-};
+  return createdConfig
+}

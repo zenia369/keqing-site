@@ -17,7 +17,7 @@ module.exports = () => {
     const name = file.match(DIR_NAME_REGEX)[1]
     entry[name] = {
       import: file,
-      filename: '[name]/js/main.hb.js',
+      filename: 'static/js/main.[name].hb.js',
     }
   })
 

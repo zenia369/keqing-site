@@ -19,7 +19,7 @@ module.exports = () => {
           template: template.path,
           inject: 'body',
           chunks: [template.name.toString()],
-          filename: `${template.name}/${template.fileName}.html`,
+          filename: `pages/${template.name}/index.html`,
         })
     )
 }

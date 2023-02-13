@@ -1,13 +1,11 @@
 const path = require('path')
 const MiniCss = require('mini-css-extract-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 const generateEntries = require('./generateEntries')
 const generateHtmlTemplatePlugin = require('./generateHtmlTemplatePlugin')
 
-const OUTPUT_PATH = path.resolve(
-  __dirname,
-  '../../../backend/client/public/pages'
-)
+const OUTPUT_PATH = path.resolve(__dirname, '../../../backend/client/public')
 
 module.exports = (mode) => {
   const isDev = mode === 'development'
@@ -17,22 +15,25 @@ module.exports = (mode) => {
     entry: generateEntries(),
     output: {
       filename: isDev
-        ? '[name]/js/main.js'
-        : '[name]/js/main.[hash:6].bundle.js',
+        ? 'static/js/main.[name].js'
+        : 'static/js/main.[name].[hash:6].bundle.js',
       path: OUTPUT_PATH,
-      publicPath: 'pages',
+      assetModuleFilename: 'static/[hash][ext][query]',
     },
     devtool: isDev ? 'source-map' : false,
     plugins: [
       new MiniCss({
         filename: ({ chunk }) => {
           if (chunk.filenameTemplate) {
-            return '[name]/styles/style.css'
+            return 'static/styles/style.[name].css'
           }
           return isDev
-            ? '[name]/styles/style.css'
-            : '[name]/styles/style.[hash:6].min.css'
+            ? 'static/styles/style.[name].css'
+            : 'static/styles/style.[name].[hash:6].min.css'
         },
+      }),
+      new CopyPlugin({
+        patterns: [path.resolve(__dirname, '../../public')],
       }),
       ...generateHtmlTemplatePlugin(),
     ],
@@ -45,7 +46,6 @@ module.exports = (mode) => {
             {
               loader: 'css-loader',
               options: {
-                url: false,
                 sourceMap: isDev,
               },
             },
@@ -58,37 +58,12 @@ module.exports = (mode) => {
           ],
         },
         {
-          test: /\.(png|jpe?g|gif|svg|jfif)$/i,
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: (url, resourcePath, context) => {
-              const relativePath = path.relative(context, resourcePath)
-              const folderName = relativePath
-                .toString()
-                .trim()
-                .match(/app[\\/\\]([A-z]{1,}[\\/\\][A-z]{1,})/)[1]
-
-              return `${folderName}\\${url}`
-            },
-          },
+          test: /\.html$/i,
+          use: 'html-loader',
         },
         {
-          test: /\.mp3$/,
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: (url, resourcePath, context) => {
-              const relativePath = path.relative(context, resourcePath)
-
-              const folderName = relativePath
-                .toString()
-                .trim()
-                .match(/app[\\/\\]([A-z]{1,}[\\/\\][A-z]{1,})/)[1]
-
-              return `${folderName}\\${url}`
-            },
-          },
+          test: /\.(png|jpe?g|gif|svg|jfif|mp3)$/i,
+          type: 'asset/resource',
         },
       ],
     },
