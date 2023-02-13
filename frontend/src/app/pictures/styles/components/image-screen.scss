@@ -1,0 +1,65 @@
+.image-screen {
+  &-active {
+    visibility: visible;
+    opacity: 1;
+  }
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba($color: $dark, $alpha: 0.5);
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+  align-items: center;
+  padding: 0 10rem;
+  justify-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  &__wrapp {
+    height: 60vh;
+    flex: 7;
+    display: flex;
+    justify-content: center;
+    & > img {
+      height: 100%;
+    }
+  }
+  & > svg {
+    cursor: pointer;
+    width: 50px;
+    height: 110px;
+    flex: 1;
+    & path {
+      fill: $white;
+    }
+    &:hover path {
+      fill: $purpleBackground;
+    }
+    &:active path {
+      fill: $purpleAfterBackround;
+    }
+    &.hidde {
+      opacity: 0.5;
+      cursor: default;
+      &:hover,
+      &:active path {
+        fill: $white;
+      }
+    }
+  }
+  &__close {
+    position: absolute;
+    color: $white;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid transparent;
+    bottom: 15px;
+    &:hover {
+      border-color: transparentize($color: $white, $amount: 0.5);
+    }
+  }
+}

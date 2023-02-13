@@ -1,0 +1,79 @@
+.loader-wrapper {
+  $size: 38px;
+  &-active {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, 0rem);
+  }
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 0.5rem;
+  background: $white;
+  border-radius: 2rem;
+  padding: 1rem;
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  width: 12rem;
+  height: 3rem;
+  transform: translate(-50%, 5rem);
+  box-shadow: 0px 0px 32px -11px transparentize($color: $black, $amount: 0.1);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out,
+    transform 0.3s ease-out;
+  .loader {
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    border: 3px solid;
+    border-color: $purple-6 $purple-6 transparent transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+  .loader::after,
+  .loader::before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px solid;
+    border-color: transparent transparent $purple-5 $purple-5;
+    width: calc(#{$size} / 1.2);
+    height: calc(#{$size} / 1.2);
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: rotationBack 0.5s linear infinite;
+    transform-origin: center center;
+  }
+  .loader::before {
+    width: calc(#{$size} / 1.5);
+    height: calc(#{$size} / 1.5);
+    border-color: $purple-7 $purple-7 transparent transparent;
+    animation: rotation 1.5s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rotationBack {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+}

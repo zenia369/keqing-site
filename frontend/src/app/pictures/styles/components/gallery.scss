@@ -1,0 +1,16 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-content: flex-start;
+  & > img {
+    height: 25vh;
+    object-fit: cover;
+    flex-grow: 1;
+    transition: filter 0.2s ease-in;
+    cursor: pointer;
+    &:hover {
+      filter: brightness(0.5);
+    }
+  }
+}

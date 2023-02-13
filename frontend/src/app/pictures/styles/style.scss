@@ -1,0 +1,17 @@
+@import '@Styles/variables.scss';
+@import '@Styles/initial.scss';
+
+@import '@Styles/components/nav.scss';
+
+main {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  column-gap: 40px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+@import './components/filter.scss';
+@import './components/gallery.scss';
+@import './components/loader.scss';
+@import './components/image-screen.scss';
