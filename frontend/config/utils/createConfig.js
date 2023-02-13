@@ -64,13 +64,12 @@ module.exports = (mode) => {
             name: '[name].[ext]',
             outputPath: (url, resourcePath, context) => {
               const relativePath = path.relative(context, resourcePath)
-              const imgPath = relativePath
+              const folderName = relativePath
                 .toString()
                 .trim()
-                .match(
-                  /[a-zA-Z]{1,}\\([a-zA-Z]{1,}\\img|[a-zA-Z]{1,}\\images)/
-                )[1]
-              return `${imgPath}\\${url}`
+                .match(/app[\\/\\]([A-z]{1,})/)[1]
+
+              return `${folderName}\\img\\${url}`
             },
           },
         },
@@ -82,12 +81,12 @@ module.exports = (mode) => {
             outputPath: (url, resourcePath, context) => {
               const relativePath = path.relative(context, resourcePath)
 
-              const mpPath = relativePath
+              const folderName = relativePath
                 .toString()
                 .trim()
-                .match(/[a-zA-Z]{1,}\\([a-zA-Z]{1,}\\audio)/)[1]
+                .match(/app[\\/\\]([A-z]{1,})/)[1]
 
-              return `${mpPath}\\${url}`
+              return `${folderName}\\audio\\${url}`
             },
           },
         },
