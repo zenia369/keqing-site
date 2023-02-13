@@ -1,4 +1,6 @@
-require("dotenv").config();
+const { APP_SERVICE_ACCOUNT, APP_CONFIG } = require("./paths");
+
+require("dotenv").config({ path: APP_CONFIG });
 const express = require("express");
 const app = express();
 const Path = require("path");
@@ -7,7 +9,6 @@ const csurf = require("csurf");
 const cookieParser = require("cookie-parser");
 const admin = require("firebase-admin");
 
-const { APP_SERVICE_ACCOUNT } = require("./paths");
 const serviceAccount = require(APP_SERVICE_ACCOUNT);
 
 const PORT = process.env.PORT ?? 5000;

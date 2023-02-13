@@ -17,4 +17,5 @@ module.exports = {
   APP_FIREBASE_CONFIG: fs.existsSync("./data/firebaseConfig.json")
     ? path.resolve("./data/firebaseConfig.json")
     : path.join(BUILD_PATH, "firebaseConfig.json"),
+  APP_CONFIG: fs.existsSync("./.env") ? path.resolve("./.env") : path.join(BUILD_PATH, ".env"),
 };
