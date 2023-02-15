@@ -1,4 +1,6 @@
 import KFetch from '@Lib/k-fetch'
+import { LOCAL_AVATAR_KEY } from '@Shared/constans'
+import { setLSItem } from '@Util/storage'
 import extractUrlParams from '@Util/extractUrlParams'
 
 import { CHARACTERS_DATA_NAMES, USER_CARD_NAMES } from '../../constants'
@@ -105,6 +107,8 @@ export default class ChangeAvatart {
       message('updated', 'ok')
 
       this.cardMediator.handleReverseAnimation()
+
+      setLSItem(LOCAL_AVATAR_KEY, this.#state.active.src)
     } catch (error) {
       message('failed, try again', 'err')
     }
