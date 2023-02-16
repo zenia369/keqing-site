@@ -1,12 +1,12 @@
-import gsap from 'gsap'
-import ScrollToPlugin from 'gsap/dist/ScrollToPlugin'
-
+import { gsap } from 'gsap'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import KFetch from '@Lib/k-fetch'
 import extractUrlParams from '@Util/extractUrlParams'
 
+import { CHARACTERS_DATA_NAMES, USER_STAND_NAMES } from '../../constants'
+
 import CharactersStand from './charactersStand'
 import UserStand from './userStand'
-import { CHARACTERS_DATA_NAMES, USER_STAND_NAMES } from '../../constants'
 import message from '../message'
 
 gsap.registerPlugin(ScrollToPlugin)
@@ -31,11 +31,23 @@ class StandMediator {
     defaults: { duration: 0.6, ease: 'none.none' },
   })
 
+  constructor() {
+    this.userStand = new UserStand(this)
+
+    this.charactersStand = new CharactersStand(this)
+    this.charactersStand.active()
+  }
+
+  handleClick(e) {
+    this.userStand.click(e)
+  }
+
   handleReverseAnimation() {
     this.animationTL.reverse()
     this.animationTL = gsap.timeline({
       defaults: { duration: 0.6, ease: 'none.none' },
     })
+
     this.setUserStandActiveItem()
     this.setState()
   }
@@ -125,8 +137,5 @@ class StandMediator {
 }
 
 const standMediator = new StandMediator()
-const userStand = new UserStand(standMediator)
-const charactersStand = new CharactersStand(standMediator)
 
-userStand.active()
-charactersStand.active()
+export default standMediator

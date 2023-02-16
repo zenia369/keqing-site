@@ -66,8 +66,12 @@ export default class ChangeUserInfo {
     }
   }
 
+  click(e) {
+    this.#handleOpenSetting(e)
+  }
+
   active() {
-    this.openBtn.addEventListener('click', this.#handleOpenSetting.bind(this))
+    // this.openBtn.addEventListener('click', this.#handleOpenSetting.bind(this))
     this.closeBtn.addEventListener(
       'click',
       this.cardMediator.handleReverseAnimation.bind(this.cardMediator)

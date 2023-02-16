@@ -1,5 +1,5 @@
-import gsap from 'gsap'
-import ScrollToPlugin from 'gsap/dist/ScrollToPlugin'
+import { gsap } from 'gsap'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 
 import { CHARACTERS_DATA_NAMES, USER_CARD_NAMES } from '../../constants'
 
@@ -23,6 +23,14 @@ class CardMediator {
 
   cardAvatar = this.rootCard.querySelector(USER_CARD_NAMES.root_avatar)
 
+  constructor() {
+    this.userAvatar = new UserAvatar(this)
+    this.userInfo = new UserInfo(this)
+
+    this.userAvatar.active()
+    this.userInfo.active()
+  }
+
   getAnimationTl() {
     return this.#animationTL
   }
@@ -33,11 +41,16 @@ class CardMediator {
       defaults: { duration: 0.6, ease: 'none.none' },
     })
   }
+
+  handleAvatarClick(e) {
+    this.userAvatar.click(e)
+  }
+
+  handleSettingClick(e) {
+    this.userInfo.click(e)
+  }
 }
 
 const cardMediator = new CardMediator()
-const userAvatar = new UserAvatar(cardMediator)
-const userInfo = new UserInfo(cardMediator)
 
-userAvatar.active()
-userInfo.active()
+export default cardMediator

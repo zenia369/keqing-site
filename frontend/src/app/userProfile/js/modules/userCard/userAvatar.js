@@ -119,11 +119,15 @@ export default class ChangeAvatart {
     this.rootAvatar.style.backgroundImage = src
   }
 
+  click(e) {
+    this.#handleOpenChangeAvatar(e)
+  }
+
   active() {
-    this.cardMediator.cardAvatar.addEventListener(
-      'click',
-      this.#handleOpenChangeAvatar.bind(this)
-    )
+    // this.cardMediator.cardAvatar.addEventListener(
+    //   'click',
+    //   this.#handleOpenChangeAvatar.bind(this)
+    // )
     this.closeBtn.addEventListener(
       'click',
       this.#handleCloseChangeAvatar.bind(this)

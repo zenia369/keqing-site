@@ -1,4 +1,4 @@
-import gsap from 'gsap'
+import { gsap } from 'gsap'
 import KFetch from '@Lib/k-fetch'
 import extractUrlParams from '@Util/extractUrlParams'
 
@@ -20,6 +20,7 @@ class UserGallery {
     USER_GALLERY_NAMES.root_submit_edit_mode
   )
 
+  // #animationTL = animation()
   #animationTL = gsap.timeline({
     defaults: { duration: 0.6, ease: 'none.none' },
   })
@@ -115,11 +116,11 @@ class UserGallery {
     this.#rootGallery.classList.toggle(USER_GALLERY_NAMES.edit_mode)
   }
 
+  handleClickOpenEditModeBtn() {
+    this.#handleOpenEditMode()
+  }
+
   active() {
-    this.#openBtn?.addEventListener(
-      'click',
-      this.#handleOpenEditMode.bind(this)
-    )
     this.#cancelBtn?.addEventListener(
       'click',
       this.#handleCanceEditMode.bind(this)
@@ -132,4 +133,5 @@ class UserGallery {
 }
 
 const userGallery = new UserGallery()
-userGallery.active()
+
+export default userGallery

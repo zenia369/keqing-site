@@ -77,10 +77,7 @@ export default class UserStand {
     }
   }
 
-  active() {
-    this.standMediator.rootUserStand.addEventListener(
-      'click',
-      this.#handleClickItem.bind(this)
-    )
+  click(e) {
+    this.#handleClickItem(e)
   }
 }

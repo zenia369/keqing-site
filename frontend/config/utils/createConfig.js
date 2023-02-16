@@ -17,8 +17,12 @@ module.exports = (mode) => {
       filename: isDev
         ? 'static/js/main.[name].js'
         : 'static/js/main.[name].[hash:6].bundle.js',
+      chunkFilename: isDev
+        ? 'static/js/chunk.[name].js'
+        : 'static/js/chunk.[name].[hash:6].js',
       path: OUTPUT_PATH,
       assetModuleFilename: 'static/[hash][ext][query]',
+      clean: true,
     },
     devtool: isDev ? 'source-map' : false,
     plugins: [

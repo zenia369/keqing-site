@@ -1,5 +1,5 @@
 import '../styles/style.scss'
 
-import './modules/userCard'
-import './modules/userGallery'
-import './modules/stand'
+import './modules/stand/stand.module'
+import './modules/userCard/card.module'
+import './modules/userGallery/gallery.module'
