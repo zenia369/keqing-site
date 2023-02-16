@@ -9,7 +9,6 @@
 @import './components/statusBar.scss';
 @import './components/userBoard.scss';
 @import './components/userGallery.scss';
-// @import './components/charactersData.scss';
 @import './components/kOverlay.scss';
 
 html {
@@ -30,4 +29,12 @@ main {
   width: 100%;
   min-height: 100vh;
   padding: 0 50px;
+}
+
+.characters-data {
+  visibility: hidden;
+  opacity: 0;
+  & > * {
+    display: none;
+  }
 }
