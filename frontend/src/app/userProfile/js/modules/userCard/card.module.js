@@ -1,7 +1,11 @@
 import { USER_CARD_NAMES } from '../../constants'
 
-function importCardModule() {
-  return import(/* webpackChunkName: "cardModule" */ './index').then(
+async function importCardModule() {
+  await import(
+    /* webpackChunkName: "profile_characters_data_module" */
+    '../../../styles/components/charactersData.scss'
+  )
+  return import(/* webpackChunkName: "profile_card_module" */ './index').then(
     (m) => m.default
   )
 }

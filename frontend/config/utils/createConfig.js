@@ -35,6 +35,11 @@ module.exports = (mode) => {
             ? 'static/styles/style.[name].css'
             : 'static/styles/style.[name].[hash:6].min.css'
         },
+        chunkFilename: () => {
+          return isDev
+            ? 'static/styles/style.chunk.[name].css'
+            : 'static/styles/style.chunk.[name].[hash:6].min.css'
+        },
       }),
       new CopyPlugin({
         patterns: [path.resolve(__dirname, '../../public')],
