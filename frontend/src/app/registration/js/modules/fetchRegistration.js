@@ -1,12 +1,12 @@
-import state from "./state";
-import KFetch from "@Lib/k-fetch";
+import KFetch from '@Lib/k-fetch'
+import state from './state'
 
-export default async () => {
-  const { data } = await KFetch.post("auth/registration" + state.newUrl);
+export default async (cred) => {
+  const { data } = await KFetch.post(`auth/registration${state.newUrl}`, cred)
 
-  const { uid, ...response } = data;
+  const { uid, ...response } = data
 
-  if (!uid) throw Error(response.message);
+  if (!uid) throw Error(response.message)
 
-  return uid;
-};
+  return uid
+}

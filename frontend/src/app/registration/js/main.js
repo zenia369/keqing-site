@@ -31,11 +31,7 @@ window.addEventListener('load', () => {
     try {
       const uid = await fetchRegistration(cred)
 
-      target.querySelector('#email').value = ''
-      target.querySelector('#password').value = ''
-      target.querySelector('#name').value = ''
-      target.querySelector('#city').value = ''
-      target.querySelector('#elemental').value = ''
+      form.reset()
       btn.disabled = false
 
       window.location.assign(`/userProfile?uid=${uid}`)

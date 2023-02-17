@@ -1,6 +1,6 @@
 export default {
   email: null,
-  password: "null",
+  password: '',
   idToken: null,
-  newUrl: "",
-};
+  newUrl: '',
+}
