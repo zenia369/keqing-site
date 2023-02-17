@@ -116,12 +116,16 @@ class StandMediator {
     )
   }
 
-  setUserStandItemData(newData, nodeIndex = this.#state.activeIndex) {
+  setUserStandItemData(
+    newData,
+    nodeIndex = this.#state.activeIndex,
+    isClear = false
+  ) {
     const isExist = this.rootUserStandItems.find(
       (i) => i.dataset.name === newData.name
     )
 
-    if (isExist) return
+    if (isExist && !isClear) return
 
     const nodeItem = this.rootUserStandItems[nodeIndex]
     nodeItem

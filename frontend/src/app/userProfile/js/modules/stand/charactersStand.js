@@ -21,7 +21,8 @@ export default class CharactersStand {
     this.standMediator.rootUserStandItems.forEach((_, idx) =>
       this.standMediator.setUserStandItemData(
         this.standMediator.getState().initalStand[idx],
-        idx
+        idx,
+        true
       )
     )
     this.standMediator.handleReverseAnimation()
