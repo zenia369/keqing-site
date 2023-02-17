@@ -8,11 +8,9 @@ const db = getFirestore();
 
 class UserProfile {
   async changeUserData(cred, uid) {
-    console.log("cred, uid", cred, uid);
     try {
       const snapshot = await db.collection("users").doc(uid).get();
       const data = snapshot.data();
-      console.log("data", data);
 
       const newUserData = {
         ...data,
@@ -152,7 +150,8 @@ class UserRegistration {
       stand: [
         {
           name: "Choose",
-          element: "pages/userProfile/images/Elements/Element_Dendro.png",
+          element:
+            "https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2FPrimogem.webp?alt=media&token=d9cc10df-c9c8-458d-ae9f-cd84ee3a4660",
           images: {
             small:
               "https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2Ftinywow_resize_2948007.jpg?alt=media&token=4caab555-06e6-47da-8d50-5dd96dc86bfa",
@@ -161,7 +160,8 @@ class UserRegistration {
         },
         {
           name: "Choose",
-          element: "pages/userProfile/images/Elements/Element_Dendro.png",
+          element:
+            "https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2FPrimogem.webp?alt=media&token=d9cc10df-c9c8-458d-ae9f-cd84ee3a4660",
           images: {
             small:
               "https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2Ftinywow_resize_2948007.jpg?alt=media&token=4caab555-06e6-47da-8d50-5dd96dc86bfa",
@@ -170,7 +170,8 @@ class UserRegistration {
         },
         {
           name: "Choose",
-          element: "pages/userProfile/images/Elements/Element_Dendro.png",
+          element:
+            "https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2FPrimogem.webp?alt=media&token=d9cc10df-c9c8-458d-ae9f-cd84ee3a4660",
           images: {
             small:
               "https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2Ftinywow_resize_2948007.jpg?alt=media&token=4caab555-06e6-47da-8d50-5dd96dc86bfa",
@@ -179,7 +180,8 @@ class UserRegistration {
         },
         {
           name: "Choose",
-          element: "pages/userProfile/images/Elements/Element_Dendro.png",
+          element:
+            "https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2FPrimogem.webp?alt=media&token=d9cc10df-c9c8-458d-ae9f-cd84ee3a4660",
           images: {
             small:
               "https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2Ftinywow_resize_2948007.jpg?alt=media&token=4caab555-06e6-47da-8d50-5dd96dc86bfa",
@@ -188,7 +190,8 @@ class UserRegistration {
         },
         {
           name: "Choose",
-          element: "pages/userProfile/images/Elements/Element_Dendro.png",
+          element:
+            "https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2FPrimogem.webp?alt=media&token=d9cc10df-c9c8-458d-ae9f-cd84ee3a4660",
           images: {
             small:
               "https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2Ftinywow_resize_2948007.jpg?alt=media&token=4caab555-06e6-47da-8d50-5dd96dc86bfa",
@@ -197,7 +200,8 @@ class UserRegistration {
         },
         {
           name: "Choose",
-          element: "pages/userProfile/images/Elements/Element_Dendro.png",
+          element:
+            "https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2FPrimogem.webp?alt=media&token=d9cc10df-c9c8-458d-ae9f-cd84ee3a4660",
           images: {
             small:
               "https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2Ftinywow_resize_2948007.jpg?alt=media&token=4caab555-06e6-47da-8d50-5dd96dc86bfa",
@@ -206,7 +210,8 @@ class UserRegistration {
         },
         {
           name: "Choose",
-          element: "pages/userProfile/images/Elements/Element_Dendro.png",
+          element:
+            "https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2FPrimogem.webp?alt=media&token=d9cc10df-c9c8-458d-ae9f-cd84ee3a4660",
           images: {
             small:
               "https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2Ftinywow_resize_2948007.jpg?alt=media&token=4caab555-06e6-47da-8d50-5dd96dc86bfa",
@@ -215,7 +220,8 @@ class UserRegistration {
         },
         {
           name: "Choose",
-          element: "pages/userProfile/images/Elements/Element_Dendro.png",
+          element:
+            "https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2FPrimogem.webp?alt=media&token=d9cc10df-c9c8-458d-ae9f-cd84ee3a4660",
           images: {
             small:
               "https://firebasestorage.googleapis.com/v0/b/keqing-gallery.appspot.com/o/page%60s%2FuserProfile%2Ftinywow_resize_2948007.jpg?alt=media&token=4caab555-06e6-47da-8d50-5dd96dc86bfa",
