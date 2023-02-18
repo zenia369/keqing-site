@@ -124,10 +124,6 @@ export default class ChangeAvatart {
   }
 
   active() {
-    // this.cardMediator.cardAvatar.addEventListener(
-    //   'click',
-    //   this.#handleOpenChangeAvatar.bind(this)
-    // )
     this.closeBtn.addEventListener(
       'click',
       this.#handleCloseChangeAvatar.bind(this)

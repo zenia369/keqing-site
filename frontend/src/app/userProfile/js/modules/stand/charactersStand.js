@@ -12,6 +12,8 @@ export default class CharactersStand {
   #handleClickItem(event) {
     const { target } = event
 
+    if (event.currentTarget.isEqualNode(target)) return
+
     const item = this.wrapGetTargetItem(target)
     const itemData = this.standMediator.getDataFromTargetItem(item)
     this.standMediator.setUserStandItemData(itemData)
