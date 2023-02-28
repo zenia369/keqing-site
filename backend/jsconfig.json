@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./"
+  },
+  "include": ["./", "./data"],
+  "exclude": ["./node_modules"]
+}
