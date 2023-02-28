@@ -1,28 +1,28 @@
-const { APP_PICTURES_DATA } = require("../paths");
-const picturesData = require(APP_PICTURES_DATA);
+const { APP_PICTURES_DATA } = require('../app_paths')
+const picturesData = require(APP_PICTURES_DATA)
 
-function filterPictures({ limit = 20, offset = 0, ...filterBy }) {
-  const filterItemsArray = new Map(Object.entries(filterBy));
-  let filteredItems = [];
+function filter_pictures({ limit = 20, offset = 0, ...filterBy }) {
+  const filterItemsArray = new Map(Object.entries(filterBy))
+  let filteredItems = []
 
   if (filterItemsArray.size > 0) {
     filteredItems = picturesData.items.filter((item) => {
-      let isExist = 0;
+      let isExist = 0
 
       filterItemsArray.forEach((filter, key) => {
-        const elements = filter.split(",");
+        const elements = filter.split(',')
 
         elements.forEach((el) => {
           if (item[key].toString().includes(el)) {
-            isExist += 1;
+            isExist += 1
           }
-        });
-      });
+        })
+      })
 
-      return isExist > 0;
-    });
+      return isExist > 0
+    })
   } else {
-    filteredItems = picturesData.items;
+    filteredItems = picturesData.items
   }
 
   const pictures = filteredItems
@@ -30,8 +30,8 @@ function filterPictures({ limit = 20, offset = 0, ...filterBy }) {
     .map((el) => ({
       path: el.path,
       id: el.id,
-    }));
-  const isNextPage = pictures.length + Number(offset) < filteredItems.length;
+    }))
+  const isNextPage = pictures.length + Number(offset) < filteredItems.length
 
   return {
     isNextPage,
@@ -39,9 +39,9 @@ function filterPictures({ limit = 20, offset = 0, ...filterBy }) {
     limit: Number(limit),
     count: pictures.length,
     items: pictures,
-  };
+  }
 }
 
 module.exports = {
-  filterPictures,
-};
+  filter_pictures,
+}
