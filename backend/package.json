@@ -2,10 +2,10 @@
   "name": "keqing_site_backend",
   "version": "1.0.0",
   "description": "Keqing site backend",
-  "main": "app.js",
+  "main": "./src/index.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js",
     "build": "npm install"
   },
   "keywords": [
@@ -17,7 +17,12 @@
   "author": "Kushnir E.",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "eslint": "^8.34.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.8.4"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -29,6 +34,8 @@
     "express-handlebars": "^6.0.2",
     "firebase": "^9.6.1",
     "firebase-admin": "^10.0.2",
-    "sib-api-v3-sdk": "^8.4.2"
+    "sib-api-v3-sdk": "^8.4.2",
+    "swagger-ui-express": "^4.6.1",
+    "yamljs": "^0.3.0"
   }
 }
