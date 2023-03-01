@@ -1,9 +1,11 @@
+/* eslint-disable class-methods-use-this */
 const { user_data } = require('../../services/firebase/store.service')
 
 class ProfileController {
   async update_avatar(req, res) {
     try {
-      const { uid, ...data } = req.body
+      const { uid } = req.user
+      const data = req.body
 
       await user_data.update_user(data, uid)
 
@@ -15,7 +17,8 @@ class ProfileController {
 
   async update_info(req, res) {
     try {
-      const { uid, ...data } = req.body
+      const { uid } = req.user
+      const data = req.body
 
       await user_data.update_user(data, uid)
 
@@ -27,7 +30,8 @@ class ProfileController {
 
   async update_stand(req, res) {
     try {
-      const { uid, stand } = req.body
+      const { uid } = req.user
+      const { stand } = req.body
 
       await user_data.update_user_stand(stand, uid)
 
@@ -39,9 +43,10 @@ class ProfileController {
 
   async delete_favorite(req, res) {
     try {
-      const { uid, data } = req.body
+      const { uid } = req.user
+      const { links } = req.body
 
-      await user_data.delete_user_favorite_by_url(data, uid)
+      await user_data.delete_user_favorite_by_url(links, uid)
 
       res.status(200).josn({ message: 'user favorite image deleted' })
     } catch (error) {
@@ -51,7 +56,8 @@ class ProfileController {
 
   async add_favorite(req, res) {
     try {
-      const { uid, ...data } = req.body
+      const { uid } = req.user
+      const data = req.body
 
       await user_data.update_user_favorite(data, uid)
 

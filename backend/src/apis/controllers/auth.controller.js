@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 const { user_data } = require('../../services/firebase/store.service')
 const {
   create_session,
