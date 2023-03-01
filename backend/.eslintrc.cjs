@@ -13,5 +13,7 @@ module.exports = {
   plugins: ['prettier', 'eslint-plugin-import'],
   rules: {
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
+    camelcase: 'off',
+    'import/no-dynamic-require': 'off',
   },
 }

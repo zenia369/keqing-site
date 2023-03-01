@@ -1,0 +1,3 @@
+{
+  "ignore": ["*.test.js", "./data", "./client", "./node_modules"]
+}
