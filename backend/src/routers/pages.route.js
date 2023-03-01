@@ -1,12 +1,13 @@
 const path = require('path')
 const { Router } = require('express')
+
 const router = new Router()
 
-//middlewares
+// middlewares
 const loginMiddlewar = require('../middlewares/login')
 const securedUserRouter = require('../middlewares/securedUserRouter')
 
-//constrolles
+// constrolles
 const pictures = require('./controllers/pictures')
 const profile = require('./controllers/profile')
 const character = require('./controllers/character')
