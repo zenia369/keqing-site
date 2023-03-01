@@ -1,0 +1,456 @@
+openapi: 3.0.0
+info:
+  title: Backend REST API
+  description: API doc for keqing-site project
+  version: 1.0.0
+  contact:
+    name: Kushnir E.
+    email: keqing.site@gmail.com
+    url: https://keqing-site.onrender.com/autors-review
+servers:
+  - url: /api/v1
+schemes:
+  - 'http'
+  - 'https'
+
+paths:
+  /images:
+    get:
+      tags:
+        - Images
+      summary: Get images for home page
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Images'
+
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /images/login:
+    get:
+      tags:
+        - Images
+      summary: Get login for character page
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Images'
+
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /images/characters:
+    get:
+      tags:
+        - Images
+      summary: Get characters for character page
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImagesCharacters'
+
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /images/register:
+    get:
+      tags:
+        - Images
+      summary: Get register for character page
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Images'
+
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /images/pictures:
+    get:
+      tags:
+        - Images
+      summary: Get pictures for character page
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImagesPictures'
+
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /auth/login:
+    post:
+      tags:
+        - Auth
+      summary: Login into system
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                idToken:
+                  type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /auth/registration:
+    post:
+      tags:
+        - Auth
+      summary: Registration into system
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/AuthRegisterRequest'
+                - type: 'object'
+                  properties:
+                    email:
+                      type: string
+                    password:
+                      type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /auth/registration/google:
+    post:
+      tags:
+        - Auth
+      summary: Registration into system with google
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/AuthRegisterRequest'
+                - type: 'object'
+                  properties:
+                    idToken:
+                      type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /profile/update_avatar:
+    patch:
+      tags:
+        - Profile
+      summary: Update profile avatar data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                avatar:
+                  type: string
+                card:
+                  type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /profile/update_info:
+    patch:
+      tags:
+        - Profile
+      summary: Update profile info data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthRegisterRequest'
+
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /profile/update_stand:
+    patch:
+      tags:
+        - Profile
+      summary: Update profile stand data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: 'object'
+              properties:
+                stand:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      element:
+                        type: string
+                      images:
+                        type: object
+                        properties:
+                          small:
+                            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /profile/update_favorite:
+    patch:
+      tags:
+        - Profile
+      summary: Add favorite item to profile data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: 'object'
+              properties:
+                big_link:
+                  type: string
+                small_link:
+                  type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /profile/delete_favorite:
+    delete:
+      tags:
+        - Profile
+      summary: Delete favorite item from profile data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: 'object'
+              properties:
+                links:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      big_link:
+                        type: string
+                      small_link:
+                        type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+        '500':
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  securitySchemes:
+    jwt_token:
+      type: 'apiKey'
+      name: 'Authorization'
+      in: 'header'
+
+  schemas:
+    Error:
+      type: 'object'
+      properties:
+        message:
+          type: 'string'
+          description: 'Error message'
+          example: 'Error message'
+    Success:
+      type: 'object'
+      properties:
+        message:
+          type: 'string'
+          description: 'Success message'
+          example: 'Success message'
+    Warning:
+      type: 'object'
+      properties:
+        message:
+          type: 'string'
+          description: 'Warning message'
+          example: 'Warning message'
+    Images:
+      type: 'object'
+      properties:
+        images:
+          type: array
+          items:
+            type: string
+    ImagesCharacters:
+      type: 'object'
+      properties:
+        images:
+          type: array
+          items:
+            type: object
+            properties:
+              'game_href':
+                type: string
+              'game_poster':
+                type: string
+              'game_name':
+                type: string
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    url:
+                      type: string
+                    poster:
+                      type: string
+    ImagesPictures:
+      type: object
+      properties:
+        isNextPage:
+          type: boolean
+        offset:
+          type: number
+        limit:
+          type: number
+        count:
+          type: number
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              id:
+                type: string
+    AuthRegisterRequest:
+      type: object
+      properties:
+        userName:
+          type: string
+        userCity:
+          type: string
+        userElement:
+          type: string
