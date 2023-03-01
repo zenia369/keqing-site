@@ -1,10 +1,13 @@
 const { initializeApp } = require('firebase/app')
 
-const { APP_FIREBASE_CONFIG } = require('../app_paths')
+const { APP_FIREBASE_CONFIG } = require('../../app_paths')
+
 const firebaseConfig = require(APP_FIREBASE_CONFIG)
 
 const appfire = initializeApp(firebaseConfig)
+// eslint-disable-next-line import/order
 const { getStorage, ref, listAll } = require('firebase/storage')
+
 const storage = getStorage(appfire)
 
 const get_character_images = async (name) => {
@@ -12,7 +15,7 @@ const get_character_images = async (name) => {
 
   const listData = await listAll(listRef)
     .then((res) => {
-      return res.items.map(({ itemRef }) => itemRef.fullPath)
+      return res.items.map((itemRef) => itemRef.fullPath)
     })
     .then((res) => {
       return res.map((el) => {

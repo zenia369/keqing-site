@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 const { getAuth } = require('firebase-admin/auth')
 
 const { initializeApp } = require('firebase/app')
@@ -7,6 +8,7 @@ const {
 } = require('firebase/auth')
 
 const { APP_FIREBASE_CONFIG } = require('../../app_paths')
+
 const firebaseConfig = require(APP_FIREBASE_CONFIG)
 
 const appFireUser = initializeApp(firebaseConfig)
@@ -34,9 +36,10 @@ const registration = async ({ email, password }) => {
     email,
     password
   )
-  const idToken = userCredential._tokenResponse.idToken
+  // eslint-disable-next-line no-underscore-dangle
+  const { idToken } = userCredential._tokenResponse
 
-  return await create_session(idToken)
+  return create_session(idToken)
 }
 
 module.exports = {

@@ -1,3 +1,5 @@
+/* eslint-disable max-classes-per-file */
+// eslint-disable-next-line import/no-unresolved
 const { getFirestore } = require('firebase-admin/firestore')
 
 const {
@@ -8,6 +10,7 @@ const {
 const db = getFirestore()
 
 class UserData {
+  // eslint-disable-next-line class-methods-use-this
   async #get_user_by_id(uid) {
     const userRef = db.collection('users').doc(uid)
 
@@ -62,7 +65,9 @@ class UserData {
 
     await userRef.set({
       ...user,
-      favorites: favorites.filter((el) => !data.includes(el)),
+      favorites: favorites.filter(
+        (el) => !data.includes(el.big_link) || !data.includes(el.small_link)
+      ),
     })
   }
 
@@ -79,14 +84,15 @@ class UserData {
       name: data.userName,
       city: data.userCity,
       element: data.userElement,
-      favorites: [],
       email: data.email,
-      password: hash_password(cred.password),
+      favorites: [],
+      password: hash_password(data.password),
     })
   }
 }
 
 class StoreData {
+  // eslint-disable-next-line class-methods-use-this
   async #get_data_by_doc_name(doc) {
     const snapshot = await db.collection('keqing').doc(doc).get()
     const data = snapshot.data()
