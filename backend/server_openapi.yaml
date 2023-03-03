@@ -344,12 +344,7 @@ paths:
                 links:
                   type: array
                   items:
-                    type: object
-                    properties:
-                      big_link:
-                        type: string
-                      small_link:
-                        type: string
+                    type: string
       responses:
         '200':
           description: Success
