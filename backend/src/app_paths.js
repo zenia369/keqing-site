@@ -4,6 +4,16 @@ const fs = require('fs')
 const BUILD_PATH = path.resolve('/etc/secrets/')
 const DATA_PATH = path.resolve(__dirname, '../data')
 
+console.log(
+  'data/serviceAccountKey',
+  fs.existsSync(__dirname, '../data/serviceAccountKey.js')
+)
+
+console.log(
+  'secrets/serviceAccountKey',
+  fs.existsSync(path.join(BUILD_PATH, 'serviceAccountKey.js'))
+)
+
 module.exports = {
   APP_SERVICE_ACCOUNT: fs.existsSync(__dirname, '../data/serviceAccountKey.js')
     ? path.join(DATA_PATH, 'serviceAccountKey.js')
