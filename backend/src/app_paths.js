@@ -18,9 +18,9 @@ module.exports = {
     ? path.join(DATA_PATH, 'firebaseConfig.json')
     : path.join(BUILD_PATH, 'firebaseConfig.json'),
   APP_CONFIG: fs.existsSync(__dirname, '../.env')
-    ? path.resolve('./.env')
+    ? path.resolve(__dirname, '../.env')
     : path.join(BUILD_PATH, '.env'),
   APP_API_DOC_FILE: fs.existsSync(__dirname, '../server_openapi.yaml')
-    ? path.resolve('./server_openapi.yaml')
+    ? path.resolve(__dirname, '../server_openapi.yaml')
     : path.join(BUILD_PATH, 'server_openapi.yaml'),
 }
