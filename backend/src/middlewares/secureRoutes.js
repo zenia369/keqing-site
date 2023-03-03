@@ -1,4 +1,6 @@
+// eslint-disable-next-line import/no-unresolved
 const { getAuth } = require('firebase-admin/auth')
+
 const auth = getAuth()
 
 module.exports = async (req, res, next) => {
@@ -10,7 +12,7 @@ module.exports = async (req, res, next) => {
     const { uid } = await auth.verifySessionCookie(sessionCookie, true)
     req.user = { uid }
 
-    next()
+    return next()
   } catch (err) {
     return res
       .status(400)

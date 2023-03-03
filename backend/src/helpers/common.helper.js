@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt')
 
 const { APP_CHARACTERS_LIST } = require('../app_paths')
+
 const character_list = require(APP_CHARACTERS_LIST)
 
 const hash_password = (password) =>
@@ -12,8 +13,8 @@ const compare_passwords = (password, hashedPassword) =>
 const create_random_user_data = () => {
   const randomNumber = Math.floor(Math.random() * character_list.length)
 
-  const card = characterList[randomNumber].card
-  const avatar = characterList[randomNumber].images.big
+  const { card } = character_list[randomNumber]
+  const avatar = character_list[randomNumber].images.big
   const stand = [
     {
       name: 'Choose',
