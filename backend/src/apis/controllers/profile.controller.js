@@ -48,7 +48,7 @@ class ProfileController {
 
       await user_data.delete_user_favorite_by_url(links, uid)
 
-      res.status(200).josn({ message: 'user favorite image deleted' })
+      res.status(200).json({ message: 'user favorite image deleted' })
     } catch (error) {
       res.status(500).json({ message: 'failed deleting user favorite image' })
     }
@@ -61,7 +61,7 @@ class ProfileController {
 
       await user_data.update_user_favorite(data, uid)
 
-      res.status(200).josn({ message: 'user favorite image added' })
+      res.status(200).json({ message: 'user favorite image added' })
     } catch (error) {
       res.status(500).json({ message: 'failed adding user favorite image' })
     }
