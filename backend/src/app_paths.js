@@ -21,7 +21,5 @@ module.exports = {
   APP_CONFIG: isDev
     ? path.resolve(__dirname, '../.env')
     : path.join(BUILD_PATH, '.env'),
-  APP_API_DOC_FILE: isDev
-    ? path.resolve(__dirname, '../server_openapi.yaml')
-    : path.join(BUILD_PATH, 'server_openapi.yaml'),
+  APP_API_DOC_FILE: path.resolve(__dirname, '../server_openapi.yaml'),
 }
