@@ -29,7 +29,6 @@ swaggerConfig(app)
 const site_router = require('./routers/pages.route')
 const error_router = require('./routers/error.route')
 // API
-const api = require('./routers/API/index')
 const api_v1 = require('./apis')
 
 app.use(express.static(path.join(__dirname, '../client/public')))
@@ -43,12 +42,12 @@ app.all('*', (req, res, next) => {
   next()
 })
 
-app.use('/api/v1', api_v1)
 app.use(site_router)
-app.use(csrufSecureAPI, api)
+app.use('/api/v1', csrufSecureAPI, api_v1)
 
 // hendler errors
 app.use(error_router)
+// eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
   if (err.code === 'EBADCSRFTOKEN') {
     return res.status(403).send('try go to home page')

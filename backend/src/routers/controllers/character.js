@@ -24,8 +24,8 @@ const character = async (req, res) => {
     res.render(path.resolve(__dirname, '../../../client/views/wife.hbs'), {
       layout: 'layout-wife',
       name,
+      images: data[1],
       ...data[0],
-      ...data[1],
     })
   } catch (error) {
     res.redirect('/registration')

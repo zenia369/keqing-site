@@ -11,10 +11,21 @@ const profile = async (req, res) => {
     const { uid } = req.query
 
     const user = await user_data.get_user(uid)
+    // TO-DO refactor user namespace
 
     res.render(path.resolve(__dirname, '../../../client/views/profile.hbs'), {
       layout: 'layout-profile',
-      user,
+      user: {
+        ...user,
+        favorites: user.favorites.map((el) =>
+          el.bigLink && el.link
+            ? {
+                big_link: el.bigLink,
+                small_link: el.link,
+              }
+            : el
+        ),
+      },
       charactersList,
     })
   } catch (error) {
