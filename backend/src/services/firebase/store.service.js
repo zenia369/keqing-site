@@ -49,7 +49,9 @@ class UserData {
 
     const favorites = [...user.favorites]
     const isExist = favorites.find(
-      (el) => el.bigLink === data.big_link && el.link === data.small_link
+      (el) =>
+        (el.bigLink === data.big_link && el.link === data.small_link) ||
+        (el.big_link === data.big_link && el.small_link === data.small_link)
     )
 
     await userRef.set({
@@ -65,8 +67,8 @@ class UserData {
 
     await userRef.set({
       ...user,
-      favorites: favorites.filter(
-        (el) => !data.includes(el.big_link) || !data.includes(el.small_link)
+      favorites: favorites.filter((el) =>
+        el.bigLink ? !data.includes(el.bigLink) : !data.includes(el.big_link)
       ),
     })
   }
