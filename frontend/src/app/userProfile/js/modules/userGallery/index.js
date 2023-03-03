@@ -1,6 +1,5 @@
 import { gsap } from 'gsap'
-import KFetch from '@Lib/k-fetch'
-import extractUrlParams from '@Util/extractUrlParams'
+import { KFetchV1 } from '@Lib/k-fetch'
 
 import { KOVERLAY_NAME, USER_GALLERY_NAMES } from '../../constants'
 import message from '../message'
@@ -82,12 +81,9 @@ class UserGallery {
           .checked
     )
 
-    const params = extractUrlParams()
-
     try {
-      await KFetch.delete('profile/deleteFavoritePhoto', {
+      await KFetchV1.delete('profile/delete_favorite', {
         data: {
-          uid: params.get('uid'),
           links: checkedList.map((node) =>
             node
               .querySelector(USER_GALLERY_NAMES.root_avatars_list_item_link)

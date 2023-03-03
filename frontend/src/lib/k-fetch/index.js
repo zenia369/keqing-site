@@ -1,14 +1,13 @@
-//to-do rename variables - broken shift key
-import axios from "axios";
-import KCookie from "@Lib/k-cookie";
+import axios from 'axios'
+import KCookie from '@Lib/k-cookie'
 
-const origin = `${window.location.origin}/api/`;
+const originV1 = '/api/v1'
 
-const headers = { "CSRF-Token": KCookie.get("XSRF-TOKEN") };
+const headers = { 'CSRF-Token': KCookie.get('XSRF-TOKEN') }
 
-const KFetch = axios.create({
-  baseURL: origin,
+export const KFetchV1 = axios.create({
+  baseURL: originV1,
   headers,
-});
+})
 
-export default KFetch;
+export default {}

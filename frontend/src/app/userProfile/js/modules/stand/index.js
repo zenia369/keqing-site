@@ -1,7 +1,6 @@
 import { gsap } from 'gsap'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
-import KFetch from '@Lib/k-fetch'
-import extractUrlParams from '@Util/extractUrlParams'
+import { KFetchV1 } from '@Lib/k-fetch'
 
 import { CHARACTERS_DATA_NAMES, USER_STAND_NAMES } from '../../constants'
 
@@ -54,18 +53,15 @@ class StandMediator {
 
   async handleUpsateUserStand() {
     const newStand = this.rootUserStandItems.map(this.getDataFromTargetItem)
-    const params = extractUrlParams()
     try {
-      await KFetch.put('profile/stand/update', {
+      await KFetchV1.patch('profile/update_stand', {
         stand: newStand.map((s) => ({
           name: s.name,
           element: s.element,
           images: {
             small: s.photo,
           },
-          id: s.id,
         })),
-        uid: params.get('uid'),
       })
 
       message('stand updated', 'ok')

@@ -1,7 +1,6 @@
-import KFetch from '@Lib/k-fetch'
+import { KFetchV1 } from '@Lib/k-fetch'
 import { LOCAL_AVATAR_KEY } from '@Shared/constans'
 import { setLSItem } from '@Util/storage'
-import extractUrlParams from '@Util/extractUrlParams'
 
 import { CHARACTERS_DATA_NAMES, USER_CARD_NAMES } from '../../constants'
 import message from '../message'
@@ -96,12 +95,9 @@ export default class ChangeAvatart {
 
   async #handleSubmit() {
     try {
-      const params = extractUrlParams()
-
-      await KFetch.put('profile/changeAvatar', {
+      await KFetchV1.patch('profile/update_avatar', {
         avatar: this.#state.active.src,
         card: this.#state.active.card,
-        uid: params.get('uid'),
       })
 
       message('updated', 'ok')

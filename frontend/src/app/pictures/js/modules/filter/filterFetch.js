@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 
-import KFetch from '@Lib/k-fetch'
+import { KFetchV1 } from '@Lib/k-fetch'
 
 class AppendImages {
   #gallery = document.querySelector('.gallery')
@@ -101,7 +101,7 @@ class FilterFetch extends AppendImages {
 
   async #fetchItems(params) {
     try {
-      const { data } = await KFetch.get('pictures', {
+      const { data } = await KFetchV1.get('images/pictures', {
         params,
       })
 

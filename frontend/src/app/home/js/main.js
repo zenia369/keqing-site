@@ -5,7 +5,7 @@ import '../styles/style.scss'
 // END IMPORT
 
 import '@Shared/userAvatar'
-import KFetch from '@Lib/k-fetch'
+import { KFetchV1 } from '@Lib/k-fetch'
 
 const warapperGallery = document.querySelector(
   '.k-info__wrapper-gallery__listWrapp-box__list'
@@ -25,9 +25,9 @@ window.addEventListener('load', () => {
 })
 
 async function galerry() {
-  const { data } = await KFetch.get('home-image')
+  const { data } = await KFetchV1.get('images')
 
-  preloadImages(data)
+  preloadImages(data.images)
 }
 function createElementGallery(gallerySrc) {
   gallerySrc.forEach((el) => {
@@ -61,8 +61,8 @@ function scrolling() {
 function isFullyVisible(el) {
   const elementBoundary = el.getBoundingClientRect()
 
-  const top = elementBoundary.top
-  const bottom = elementBoundary.bottom
+  const { top } = elementBoundary
+  const { bottom } = elementBoundary
   return top >= 0 && bottom <= window.innerHeight
 }
 

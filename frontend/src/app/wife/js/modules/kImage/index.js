@@ -1,6 +1,6 @@
 import { gsap } from 'gsap'
 
-import KFetch from '@Lib/k-fetch'
+import { KFetchV1 } from '@Lib/k-fetch'
 import extractUrlParams from '@Util/extractUrlParams'
 
 import { K_IMAGE_NAMES } from '../../constans'
@@ -55,10 +55,9 @@ class KImages {
     if (!target || !uid) return
 
     try {
-      const res = await KFetch.put('wife/addFavoritePhoto', {
-        uid,
-        bigLink: target.dataset.biglink,
-        link: target.dataset.link,
+      const res = await KFetchV1.patch('profile/update_favorite', {
+        big_link: target.dataset.biglink,
+        small_link: target.dataset.link,
       })
 
       showMessage(res.status, res.data.message)

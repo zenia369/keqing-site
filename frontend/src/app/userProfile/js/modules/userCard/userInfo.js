@@ -1,5 +1,4 @@
-import KFetch from '@Lib/k-fetch'
-import extractUrlParams from '@Util/extractUrlParams'
+import { KFetchV1 } from '@Lib/k-fetch'
 
 import { USER_CARD_NAMES } from '../../constants'
 import message from '../message'
@@ -42,22 +41,17 @@ export default class ChangeUserInfo {
     const element = target[USER_CARD_NAMES.form_element]
 
     try {
-      const params = extractUrlParams()
-
-      await KFetch.put('profile/changeInfo', {
-        name: name.value,
-        city: city.value,
-        element: element.value,
-        uid: params.get('uid'),
+      await KFetchV1.patch('profile/update_info', {
+        userName: name.value,
+        userCity: city.value,
+        userElement: element.value,
       })
 
       this.userName.innerText = name.value
       this.userCity.innerText = city.value
       this.userElement.innerText = element.value
 
-      name.value = ''
-      city.value = ''
-      element.value = ''
+      this.cardMediator.cardForm.reset()
 
       message('updated', 'ok')
       this.cardMediator.handleReverseAnimation()

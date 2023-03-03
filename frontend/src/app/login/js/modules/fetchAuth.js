@@ -6,7 +6,7 @@ import {
   signInWithPopup,
   sendPasswordResetEmail,
 } from 'firebase/auth'
-import KFetch from '@Lib/k-fetch'
+import { KFetchV1 } from '@Lib/k-fetch'
 
 import APP_FIREBASE_CONFIG from '../../../../../config/firebaseConfig.json'
 
@@ -16,7 +16,7 @@ const auth = getAuth(app)
 const provider = new GoogleAuthProvider()
 
 const createFetch = async (idToken) => {
-  const { data } = await KFetch.post('auth/login', { idToken })
+  const { data } = await KFetchV1.post('auth/login', { idToken })
 
   return data.uid
 }
