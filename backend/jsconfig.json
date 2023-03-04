@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "types": ["jest", "node", "supertest", "express"]
   },
-  "include": ["./", "./data"],
+  "include": ["./", "./data", "./globals.d.ts"],
   "exclude": ["./node_modules"]
 }
