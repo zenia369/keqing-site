@@ -10,10 +10,9 @@ const {
 const { APP_FIREBASE_CONFIG } = require('../../app_paths')
 
 const firebaseConfig = require(APP_FIREBASE_CONFIG)
-
 const appFireUser = initializeApp(firebaseConfig)
-const authFireUser = getFireAuth(appFireUser)
 
+const authFireUser = getFireAuth(appFireUser)
 const auth = getAuth()
 
 const create_session = async (idToken) => {
@@ -39,7 +38,7 @@ const registration = async ({ email, password }) => {
   // eslint-disable-next-line no-underscore-dangle
   const { idToken } = userCredential._tokenResponse
 
-  return create_session(idToken)
+  return idToken
 }
 
 module.exports = {

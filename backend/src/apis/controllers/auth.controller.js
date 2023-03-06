@@ -27,7 +27,8 @@ class AuthController {
     try {
       const data = req.body
 
-      const { options, sessionCookie, uid } = await registration(data)
+      const idToken = await registration(data)
+      const { options, sessionCookie, uid } = await create_session(idToken)
 
       await user_data.create_user({ uid, data })
 
