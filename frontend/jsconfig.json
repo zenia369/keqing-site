@@ -7,7 +7,8 @@
       "@Styles/*": ["./src/shared/styles/*"],
       "@Lib/*": ["./src/lib/*"],
       "@Util/*": ["./src/shared/utils/*"]
-    }
+    },
+    "types": ["cypress"]
   },
   "include": ["src", "config", ".eslintrc.cjs"],
   "exclude": ["./node_modules"]

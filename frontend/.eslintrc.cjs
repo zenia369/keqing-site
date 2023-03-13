@@ -7,6 +7,7 @@ module.exports = {
     'airbnb-base',
     'plugin:prettier/recommended',
     'plugin:import/recommended',
+    'plugin:cypress/recommended',
   ],
   overrides: [],
   parserOptions: {
@@ -14,7 +15,13 @@ module.exports = {
     sourceType: 'module',
     project: './jsconfig.json',
   },
-  plugins: ['prettier', 'eslint-plugin-import'],
+  plugins: [
+    'prettier',
+    'eslint-plugin-import',
+    'cypress',
+    'mocha',
+    'chai-friendly',
+  ],
   rules: {
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
     'import/no-unresolved': 'off',
