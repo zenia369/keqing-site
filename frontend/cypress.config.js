@@ -6,4 +6,5 @@ module.exports = defineConfig({
     baseUrl: 'http://localhost:5000',
   },
   viewportWidth: 1350,
+  viewportHeight: 660,
 })
