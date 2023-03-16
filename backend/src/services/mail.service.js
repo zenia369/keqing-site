@@ -1,6 +1,6 @@
 const Sib = require('sib-api-v3-sdk')
 
-const sendMail = async ({ message, email }) => {
+const send_mail = async ({ message, email }) => {
   const client = Sib.ApiClient.instance
   const apiKey = client.authentications['api-key']
   apiKey.apiKey = process.env.SENDBLUE_API_KEY
@@ -32,4 +32,6 @@ const sendMail = async ({ message, email }) => {
   })
 }
 
-module.exports = sendMail
+module.exports = {
+  send_mail,
+}
