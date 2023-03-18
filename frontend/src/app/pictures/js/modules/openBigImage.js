@@ -43,7 +43,7 @@ class EvenEmmiter extends ModalWindow {
 
     this.#activeTarget = target
     target.dataset.open = true
-    const { src } = target
+    const src = target.getAttribute('src')
     this.open(src)
 
     this.#linkToCatchCloseEvent = this.#catchCloseEvent.bind(this)
