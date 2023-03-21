@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import 'cypress-real-events'
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -24,4 +27,14 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-import 'cypress-real-events'
+Cypress.Commands.add('compareByAttr', (nodeOne, nodeTwo, type) => {
+  cy.get(nodeOne)
+    .invoke('attr', type)
+    .then((dataOne) => {
+      cy.get(nodeTwo)
+        .invoke('attr', type)
+        .then((dataTwo) => {
+          expect(dataOne).to.eq(dataTwo)
+        })
+    })
+})
