@@ -100,7 +100,9 @@ class EvenEmmiter extends ModalWindow {
     this.#activeTarget = newSrc
     newSrc.dataset.open = true
 
-    this.setModalImgSrc(newSrc.src)
+    const src = newSrc.getAttribute('src')
+
+    this.setModalImgSrc(src)
   }
 
   #toggleHiddeBtn(method, side = 'left') {
