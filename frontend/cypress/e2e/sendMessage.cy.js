@@ -29,7 +29,7 @@ describe('Test sendMessage page', () => {
     cy.get('@reactionSuccess').should('be.visible')
   })
 
-  it.only('#send message failed', function () {
+  it('#send message failed', function () {
     cy.intercept('POST', '/api/v1/author/message', {
       statusCode: 400,
       body: 'Internal Server Error',

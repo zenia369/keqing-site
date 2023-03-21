@@ -1,6 +1,6 @@
 describe('Test login page', () => {
   beforeEach(function () {
-    cy.fixture('real-user-credentials').then((d) => {
+    cy.fixture('user-credentials.secret').then((d) => {
       this.user = d
     })
 
