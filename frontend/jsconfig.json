@@ -7,8 +7,9 @@
       "@Styles/*": ["./src/shared/styles/*"],
       "@Lib/*": ["./src/lib/*"],
       "@Util/*": ["./src/shared/utils/*"]
-    }
+    },
+    "types": ["cypress", "cypress-real-events"]
   },
-  "include": ["src", "config", ".eslintrc.cjs"],
+  "include": ["src", "config", "cypress", ".eslintrc.cjs"],
   "exclude": ["./node_modules"]
 }
