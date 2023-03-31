@@ -22,4 +22,7 @@ module.exports = {
     ? path.resolve(__dirname, '../.env')
     : path.join(BUILD_PATH, '.env'),
   APP_API_DOC_FILE: path.resolve(__dirname, '../server_openapi.yaml'),
+  APP_BACKGROUND_LIST: isDev
+    ? path.join(DATA_PATH, 'background_data.json')
+    : path.join(BUILD_PATH, 'background_data.json'),
 }

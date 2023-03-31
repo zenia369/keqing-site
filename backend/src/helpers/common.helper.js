@@ -1,8 +1,9 @@
 const bcrypt = require('bcrypt')
 
-const { APP_CHARACTERS_LIST } = require('../app_paths')
+const { APP_CHARACTERS_LIST, APP_BACKGROUND_LIST } = require('../app_paths')
 
 const character_list = require(APP_CHARACTERS_LIST)
+const background_list = require(APP_BACKGROUND_LIST)
 
 const hash_password = (password) =>
   bcrypt.hashSync(password, Number(process.env.BCRYPT_KEY))
@@ -101,8 +102,15 @@ const create_random_user_data = () => {
   return { avatar, card, stand }
 }
 
+const get_random_background = () => {
+  const randomNumber = Math.floor(Math.random() * background_list.length)
+
+  return background_list.data[randomNumber] ?? randomNumber.data[0]
+}
+
 module.exports = {
   hash_password,
   compare_passwords,
   create_random_user_data,
+  get_random_background,
 }

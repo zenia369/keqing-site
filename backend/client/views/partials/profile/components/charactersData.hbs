@@ -12,7 +12,7 @@
       </div>
     </div>
     <ul class="characters-data__avatarts__list">
-      {{#each charactersList}}
+      {{#each page.charactersList}}
         <li
           class="characters-data__avatarts__list__item"
           data-src={{this.images.big}}
@@ -36,7 +36,7 @@
       </div>
     </div>
     <ul class="characters-data__characters__list">
-      {{#each charactersList}}
+      {{#each page.charactersList}}
         <li class="characters-data__characters__list__item" data-name="{{this.name}}">
           <img
             id="stand-item-element"
