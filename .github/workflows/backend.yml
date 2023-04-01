@@ -1,0 +1,20 @@
+name: Keqing_backend_actions
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  be_testing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+          cache-dependency-path: ./backend/package-lock.json
+      - run: "cd backend && npm ci"
+      - name: Run tests
+        run: "cd backend && npm run test"
