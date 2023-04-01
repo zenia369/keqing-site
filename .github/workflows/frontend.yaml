@@ -1,0 +1,35 @@
+name: Keqing_frontend_actions
+
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+          cache-dependency-path: "**/package-lock.json"
+      - run: |
+        "cd backend && npm ci"
+        "cd frontend && npm ci"
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          browser: chrome
+          spec: "frontend/cypress/e2e/*.cy.js"
+          config-file: frontend/cypress.config.js
+          install: false
+          build: "cd frontend && npm run preview"
+          start: "npm run start"
+          wait-on: 'http://localhost:5000'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
