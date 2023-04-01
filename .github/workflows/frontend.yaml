@@ -27,8 +27,7 @@ jobs:
           spec: "frontend/cypress/e2e/*.cy.js"
           config-file: frontend/cypress.config.js
           install: false
-          build: "cd frontend && npm run preview"
-          start: "npm run start"
+          start: npm run start
           wait-on: 'http://localhost:5000'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
