@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "main"
+      - "fe_set_up_ci"
   pull_request:
     branches:
       - "main"
