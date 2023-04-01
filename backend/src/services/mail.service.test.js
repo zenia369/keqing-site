@@ -1,5 +1,5 @@
 const sib = require('sib-api-v3-sdk')
-const mailService = require('./mail.service')
+const { send_mail } = require('./mail.service')
 
 describe('Test mail sercvice', () => {
   const mockSendTransacEmail = jest.fn()
@@ -15,7 +15,7 @@ describe('Test mail sercvice', () => {
     const mockApiKey = 'test-api-key'
     process.env.SENDBLUE_API_KEY = mockApiKey
 
-    await mailService(mockMailData)
+    await send_mail(mockMailData)
 
     expect(sib.ApiClient.instance.authentications['api-key'].apiKey).toBe(
       mockApiKey

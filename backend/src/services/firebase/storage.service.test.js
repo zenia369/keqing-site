@@ -1,5 +1,9 @@
 const { get_character_images } = require('./storage.service')
 
+jest.mock(require('../../app_paths').APP_FIREBASE_CONFIG, () => ({}), {
+  virtual: true,
+})
+
 jest.mock('firebase/app', () => ({
   initializeApp: jest.fn().mockReturnValue({
     storage: jest.fn(),

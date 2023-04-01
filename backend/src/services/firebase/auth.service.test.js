@@ -25,6 +25,9 @@ jest.mock('firebase-admin/auth', () => ({
     createSessionCookie: mockCreateSessionCookie,
   })),
 }))
+jest.mock(require('../../app_paths').APP_FIREBASE_CONFIG, () => ({}), {
+  virtual: true,
+})
 
 const { create_session, registration } = require('./auth.service')
 
