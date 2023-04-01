@@ -19,7 +19,7 @@ jobs:
           node-version: 18
           cache: npm
           cache-dependency-path: "**/package-lock.json"
-      - run: npm build 
+      - run: npm run build 
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
