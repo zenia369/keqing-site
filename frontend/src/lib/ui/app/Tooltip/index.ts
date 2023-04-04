@@ -1,6 +1,5 @@
 import { html, css, LitElement } from 'lit'
 import { customElement, property, state } from 'lit/decorators.js'
-import { cache } from 'lit/directives/cache.js'
 
 @customElement('kq-tooltip')
 export class KQTooltip extends LitElement {
@@ -23,7 +22,7 @@ export class KQTooltip extends LitElement {
   `
 
   @state()
-  private _click = true
+  private show = false
 
   @property()
   text!: string
@@ -31,20 +30,14 @@ export class KQTooltip extends LitElement {
   render() {
     return html`
       <div @mouseenter=${this.onClick} @mouseleave=${this.onClick}>
-        ${cache(
-          this._click
-            ? html`<slot></slot>`
-            : html`
-                <slot></slot>
-                <p>${this.text}</p>
-              `
-        )}
+        <slot></slot>
+        <p ?hidden=${!this.show}>${this.text}</p>
       </div>
     `
   }
 
   private onClick() {
-    this._click = !this._click
+    this.show = !this.show
   }
 }
 
