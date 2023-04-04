@@ -4,6 +4,8 @@ import '../styles/style.scss'
 
 // END IMPORT
 
+import '@UI/Tooltip'
+
 import '@Shared/userAvatar'
 import { KFetchV1 } from '@Lib/k-fetch'
 

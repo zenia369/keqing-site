@@ -40,12 +40,22 @@
     <nav class="navigation">
       <a href="/" class="navigation__home"><span>Home page:</span></a>
       <ul class="navigation__list">
-        <li class="navigation__list__item"><a href="/myWife">My wife</a></li>
-        <li class="navigation__list__item"><a href="/aboutMe">About Me</a></li>
         <li class="navigation__list__item">
-          <a href="/userProfile" title="Your profile">
-            <div class="navigation__list__item__img"></div>
-          </a>
+          <kq-tooltip text="Open list characters page">
+            <a href="/myWife">My wife</a>
+          </kq-tooltip>
+        </li>
+        <li class="navigation__list__item">
+          <kq-tooltip text="Open about page">
+            <a href="/aboutMe">About Me</a>
+          </kq-tooltip>
+        </li>
+        <li class="navigation__list__item">
+          <kq-tooltip text="Your profile">
+            <a href="/userProfile">
+              <div class="navigation__list__item__img"></div>
+            </a>
+          </kq-tooltip>
         </li>
       </ul>
     </nav>
@@ -181,9 +191,9 @@
           </div>
         </div>
         <hr />
-        <a href="/teyvat-through-picture" class="pictures-preview__link"
-          >View all »</a
-        >
+        <a href="/teyvat-through-picture" class="pictures-preview__link">
+          View all »
+        </a>
       </section>
     </main>
     <footer class="footer">
