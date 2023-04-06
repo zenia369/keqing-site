@@ -77,6 +77,14 @@ module.exports = (mode) => {
           test: /\.(png|jpe?g|gif|svg|jfif|mp3)$/i,
           type: 'asset/resource',
         },
+        {
+          test: /\.hbs$/,
+          loader: 'handlebars-loader',
+          options: {
+            inlineRequires: '/img/',
+            partialDirs: [path.resolve(__dirname, '../../src/shared/views')],
+          },
+        },
       ],
     },
     resolve: {

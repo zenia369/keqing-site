@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable import/no-extraneous-dependencies */
 const glob = require('glob')
 
 const PATH_TO_JS = './src/app/**/js/main.js'
