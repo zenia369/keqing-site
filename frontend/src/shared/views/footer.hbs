@@ -1,0 +1,20 @@
+<footer class="footer">
+  {{#if hiddeText}}
+  <div class="footer__wrapper" style="justify-content: center;">
+    <div class="footer__wrapper-text">
+      <i class="far fa-flag"></i>
+      <p>По запитаням звертатись у формі рецензії.</p>
+    </div>
+    {{else}}
+    <div class="footer__wrapper">
+      <div class="footer__wrapper-text">
+        <i class="far fa-flag"></i>
+        <p>По запитаням звертатись у формі рецензії.</p>
+      </div>
+      <div class="footer__wrapper-link">
+        <i class="fas fa-envelope"></i>
+        <a href="/autorsReview">Відгук автору</a>
+      </div>
+      {{/if}}
+    </div>
+</footer>

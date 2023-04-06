@@ -1,0 +1,35 @@
+<nav class="navigation">
+  <a href="/" class="navigation__home"><span>Home page:{{pageName}}</span></a>
+  <ul class="navigation__list">
+    {{#if isCharacters}}
+    <li class="navigation__list__item">
+      <kq-tooltip text="Open list characters page">
+        <a href="/myWife">My wife</a>
+      </kq-tooltip>
+    </li>
+    {{/if}}
+    {{#if isAbout}}
+    <li class="navigation__list__item">
+      <kq-tooltip text="Open about page">
+        <a href="/aboutMe">About Me</a>
+      </kq-tooltip>
+    </li>
+    {{/if}}
+    {{#if isAutorsReview}}
+    <li class="navigation__list__item">
+      <kq-tooltip text="Open page autors review">
+        <a href="/autorsReview">Send message</a>
+      </kq-tooltip>
+    </li>
+    {{/if}}
+    {{#if isProfile}}
+    <li class="navigation__list__item">
+      <kq-tooltip text="Your profile">
+        <a href="/userProfile">
+          <div class="navigation__list__item__img"></div>
+        </a>
+      </kq-tooltip>
+    </li>
+    {{/if}}
+  </ul>
+</nav>
