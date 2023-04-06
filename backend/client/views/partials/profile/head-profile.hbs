@@ -1,43 +1,20 @@
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Привіт, і це Keqing-site profile page. Семпай може тут знайти свої збережені фото та налаштувати профіль."
-  />
-  <meta property="og:title" content="Keqing-site profile page" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://keqing-site.herokuapp.com/userProfile" />
-  <meta property="og:image" content="https://keqing-site.herokuapp.com/pages/home/img/Keqing.png" />
-  <meta
-    property="og:description"
-    content="Привіт, і це Keqing-site profile page. Семпай може тут знайти свої збережені фото та налаштувати профіль."
-  />
+  {{> pageMetaData
+  description="Привіт, і це Keqing-site profile page. Семпай може тут знайти свої збережені фото та налаштувати
+  профіль."
+  path="https://keqing-site.onrender.com/userProfile"
+  }}
   <title>Profile - {{user.name}}</title>
   <style>
     body {
       background-image: url({{ page.background }}) !important;
     }
   </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap"
-    rel="stylesheet"
-  />
+  {{> pageFonts}}
+
   <link rel="stylesheet" href="/static/styles/style.userProfile.css" type="text/css" />
-  <link
-    rel="stylesheet"
-    href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  />
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>

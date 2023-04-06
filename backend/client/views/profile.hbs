@@ -1,14 +1,12 @@
-<nav class="navigation">
-  <a href="/" class="navigation__home"><span>Home page:/Profile</span></a>
-  <ul class="navigation__list">
-    <li class="navigation__list__item"><a href="/myWife">My wife</a></li>
-    <li class="navigation__list__item"><a href="/aboutMe">About Me</a></li>
-    <li class="navigation__list__item"><a href="/autorsReview">Author Review</a></li>
-  </ul>
-</nav>
+{{> navigation
+pageName="/Profile"
+isCharacters=true
+isAbout=true
+isAutorsReview=true
+}}
 
 <main>
-   <section class="status-bar">
+  <section class="status-bar">
     <div></div>
     <div class="status-bar__default">
       <a href="/logout" class="status-bar__default__logout-btn">
@@ -21,13 +19,6 @@
   {{> profile/components/charactersData }}
 </main>
 
-<footer class="footer">
-  <div class="footer__wrapper">
-    <div class="footer__wrapper-text">
-      <i class="far fa-flag"></i>
-      <p>По запитаням звертатись у формі рецензії.</p>
-    </div>
-  </div>
-</footer>
+{{> footer hiddeText=true}}
 
 <div class="k-overlay"></div>
