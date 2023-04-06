@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ukr">
+
+<head>
+  {{> pageMetaData
+  description="Привіт, і це Keqing-site. Семпай може тут знайти багато цікавого контенту(фото, відео) по світу ігор,
+  манг та щіпотку цікавого функціоналу."
+  path="https://keqing-site.onrender.com/about-me"
+  }}
+  <title>About Me</title>
+  {{> pageAssets}}
+</head>
+
+<body>
+  {{> navigation
+  pageName="/About Me"
+  isCharacters=true
+  isAutorsReview=true
+  isProfile=true
+  }}
+  <main>
+    <section class="author-info">
+      <div class="author-info__personal">
+        <h2 class="author-info__personal__name">Kushnir Yevhenii</h2>
+        <ul class="author-info__personal__list">
+          <li>Front-end Dev.</li>
+        </ul>
+      </div>
+      <div class="author-info__golds">
+        <p>
+          Цей сайт є проектом автора. Також з часом буде покращуватись візуально та функціонально.
+          <br />
+          &#169; Kushnir
+        </p>
+      </div>
+    </section>
+  </main>
+  {{> footer}}
+</body>
+
+</html>

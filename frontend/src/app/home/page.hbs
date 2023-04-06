@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  {{> pageMetaData
+  description="Привіт, і це Keqing-site. Семпай може тут знайти багато цікавого контенту(фото, відео) по світу ігор,
+  манг та щіпотку цікавого функціоналу."
+  path="https://keqing-site.onrender.com/"
+  }}
+  <title>Keqing | Kushnir</title>
+  {{> pageAssets}}
+</head>
+
+<body>
+  {{> navigation
+  isCharacters=true
+  isAbout=true
+  isProfile=true
+  }}
+  <header class="header">
+    <div class="header__photo">
+      <img width="410" height="410" src="./img/Keqing.png" alt="Keqing" />
+    </div>
+    <div class="header__content">
+      <div class="header__content__title">
+        <h1 class="header__content__title__name">Keqing/Ке Цин</h1>
+        <img width="80" height="80" src="./img/electro.png" alt="elrctro" />
+      </div>
+      <div class="header__content__text">
+        <p class="header__content__text__main">
+          Найголовніший трудоголік Лі Ює. На її думку працювати треба за
+          десятьох, а якість має бути найкращою. Також сама вона каже що час
+          богів пройшов, люди мають відповідати за свою долю, - виявляється
+          боги любять таких скептиків.
+        </p>
+        <p class="header__content__text__sub">
+          *Взагалі, вона чудова і приємна дівчина. Обожнюю ЇЇ!!
+        </p>
+      </div>
+      <div class="header__content__k-visit">
+        <a href="/characters/keqing" target="_blank">дуже цікаво, хочу ще..</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="k-info">
+      <div class="k-info__wrapper">
+        <div class="k-info__wrapper-gallery">
+          <div class="k-info__wrapper-gallery__listWrapp">
+            <div class="k-info__wrapper-gallery__listWrapp-box">
+              <div id="loader">
+                <div class="lds-spinner">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+              <div class="k-info__wrapper-gallery__listWrapp-box__list"></div>
+            </div>
+          </div>
+          <div class="k-info__wrapper-gallery__btn">
+            <a href="/characters/keqing" target="_blank">ще...</a>
+          </div>
+        </div>
+        <div class="k-info__wrapper-audio">
+          <div class="k-info__wrapper-audio__wrapper">
+            <img src="./img/electro.png" alt="electro" />
+            <audio src="./audio/KeqingVoice.mp3" controls></audio>
+          </div>
+        </div>
+      </div>
+      <div></div>
+    </section>
+    <section class="pictures-preview">
+      <div class="pictures-preview__title">
+        <h4>Тайват Через Фото</h4>
+      </div>
+      <div class="pictures-preview__wraper">
+        <div class="pictures-preview__item" style="--i: 1">
+          <img src="./img/photo_2022-09-15_13-21-32.jpg" alt="pictures preview image" />
+        </div>
+        <div class="pictures-preview__item" style="--i: 2">
+          <img src="./img/photo_2022-09-15_13-22-20.jpg" alt="pictures preview image" />
+        </div>
+        <div class="pictures-preview__item" style="--i: 3">
+          <img src="./img/photo_2022-09-15_13-22-32.jpg" alt="pictures preview image" />
+        </div>
+        <div class="pictures-preview__item" style="--i: 4">
+          <img src="./img/photo_2022-09-15_13-22-37.jpg" alt="pictures preview image" />
+        </div>
+        <div class="pictures-preview__item" style="--i: 5">
+          <img src="./img/photo_2022-09-15_13-22-48.jpg" alt="pictures preview image" />
+        </div>
+        <div class="pictures-preview__item" style="--i: 6">
+          <img src="./img/photo_2022-09-15_13-22-51.jpg" alt="pictures preview image" />
+        </div>
+        <div class="pictures-preview__item" style="--i: 7">
+          <img src="./img/photo_2022-09-15_13-22-54.jpg" alt="pictures preview image" />
+        </div>
+        <div class="pictures-preview__item" style="--i: 8">
+          <img src="./img/photo_2022-09-15_13-23-04.jpg" alt="pictures preview image" />
+        </div>
+        <div class="pictures-preview__item" style="--i: 9">
+          <img src="./img/photo_2022-09-15_13-23-10.jpg" alt="pictures preview image" />
+        </div>
+        <div class="pictures-preview__item" style="--i: 10">
+          <img src="./img/photo_2022-09-15_13-23-14.jpg" alt="pictures preview image" />
+        </div>
+      </div>
+      <hr />
+      <a href="/teyvat-through-picture" class="pictures-preview__link">
+        View all »
+      </a>
+    </section>
+  </main>
+  {{> footer}}
+</body>
+
+</html>

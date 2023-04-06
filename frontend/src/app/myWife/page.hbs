@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ukr">
+
+<head>
+  {{> pageMetaData
+  description="Привіт, і це Keqing-site wives page. Семпай може тут знайти багато-багато героїнь своїх мрій."
+  path="https://keqing-site.onrender.com/my-wife"
+  }}
+  <title>My Wife</title>
+  {{> pageFonts}}
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="header__title">Gallery my wives</h1>
+  </header>
+  <nav class="menu">
+    <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon" />
+    <label for="menu-icon"></label>
+    <nav class="nav">
+      <ul class="pt-5">
+        <li><a href="/">Home</a></li>
+        <li><a href="/aboutMe">About Me</a></li>
+        <li><a href="/autorsReview">Author Review</a></li>
+        <li><a href="/userProfile">Profile</a></li>
+      </ul>
+    </nav>
+  </nav>
+  <main>
+    <div id="loader" class="spinner-grow" role="status"></div>
+    <div class="cardList"></div>
+  </main>
+</body>
+
+</html>

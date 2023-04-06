@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ukr">
+
+<head>
+  {{> pageMetaData
+  description="Привіт, і це Keqing-site registration page. Семпай може тут зареєструватись для подальшого перегяду
+  контенту сайта."
+  path="https://keqing-site.onrender.com/registration"
+  }}
+  <title>Registration</title>
+  {{> pageFonts}}
+</head>
+
+<body>
+  <header>
+    <h1 class="title">Welcome new user on Keqing-site registration page!</h1>
+    <a class="login" href="/login?continuePath=/">Log in</a>
+  </header>
+  <main>
+    <form id="form">
+      <div class="content">
+        <fieldset class="content__auth">
+          <legend>Authorisation information</legend>
+          <input type="email" placeholder="Email" minlength="6" id="email" required />
+          <input type="password" placeholder="Password" minlength="6" maxlength="6" id="password" required />
+          <div class="variants">
+            <h3>or use it:</h3>
+            <div class="variants__wrapp">
+              <button type="button" id="google">Google</button>
+            </div>
+          </div>
+          <div class="status">
+            <img src="./img/check.png" alt="check" />
+          </div>
+        </fieldset>
+        <fieldset class="content__user">
+          <legend>User information</legend>
+          <div>
+            <label for="name">Create name:</label>
+            <input type="text" id="name" required minlength="4" />
+          </div>
+          <div>
+            <label for="city">Choose city:</label>
+            <select name="city" id="city" required>
+              <option disabled selected>Variants</option>
+              <option value="Mondstadt">Mondstadt</option>
+              <option value="Liyue">Liyue</option>
+              <option value="Inazuma">Inazuma</option>
+            </select>
+          </div>
+          <div>
+            <label for="elemental">Choose elemental:</label>
+            <select name="elemental" id="elemental">
+              <option disabled selected>Variants</option>
+              <option value="Pyro">Pyro</option>
+              <option value="Hydro">Hydro</option>
+              <option value="Anemo">Anemo</option>
+              <option value="Electro">Electro</option>
+              <option value="Cryo">Cryo</option>
+              <option value="Geo">Geo</option>
+            </select>
+          </div>
+        </fieldset>
+      </div>
+      <button class="btn-submit" type="submit">Let's go</button>
+    </form>
+  </main>
+</body>
+
+</html>

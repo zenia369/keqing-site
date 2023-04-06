@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ukr">
+
+<head>
+  {{> pageMetaData
+  description="Привіт, і це Keqing-site wives page. Семпай може тут знайти багато-багато героїнь своїх мрій."
+  path="https://keqing-site.onrender.com/login?continuePath=/"
+  }}
+  <title>Keqing login</title>
+  {{> pageFonts}}
+</head>
+
+<body>
+  <main>
+    <section class="content">
+      <div class="content__title">
+        <h2>Keqing</h2>
+        <p>welcome to me home</p>
+      </div>
+      <form id="form" class="content__form">
+        <input type="email" placeholder="Email" minlength="6" id="email" pattern="/^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/g"
+          required />
+        <input type="password" placeholder="Password" minlength="6" maxlength="20" id="password" required />
+        <button id="btn-form" type="submit">Log in</button>
+      </form>
+      <div class="content__another">
+        <div class="content__another__reset hidden">
+          <button>Reset Password</button>
+        </div>
+        <p>or</p>
+        <div class="content__another__links">
+          <a href="/registration">Registration</a>
+          <button id="google" type="button">Google</button>
+        </div>
+      </div>
+      <img class="content__reaction" src="./img/reaction.svg" alt="Keqing reaction" />
+    </section>
+    <section class="list-wraper">
+      <div class="list-images">
+        <img class="list-images__item" src="./img/keqing.png" alt="Keqing image main" />
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
