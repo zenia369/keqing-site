@@ -5,7 +5,10 @@ module.exports = (app) => {
   const hbs = exphbs.create({
     extname: '.hbs',
     layoutsDir: path.resolve(__dirname, '../../client/views/layouts'),
-    partialsDir: path.resolve(__dirname, '../../client/views/partials'),
+    partialsDir: [
+      path.resolve(__dirname, '../../client/views/partials'),
+      path.resolve(__dirname, '../../../frontend/src/shared/views'),
+    ],
   })
 
   app.engine('hbs', hbs.engine)
@@ -24,6 +27,6 @@ module.exports = (app) => {
     const result = operators[operator](operand_1, operand_2)
 
     if (result) return true
-    else return false
+    return false
   })
 }
