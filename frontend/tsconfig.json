@@ -39,7 +39,8 @@
       "@Styles/*": ["./src/shared/styles/*"],
       "@Lib/*": ["./src/lib/*"],
       "@Util/*": ["./src/shared/utils/*"],
-      "@UI/*": ["./src/lib/ui/app/*"]
+      "@UI/*": ["./src/lib/ui/*"],
+      "@Public/*": ["./src/shared/icons/*"]
     } /* Specify a set of entries that re-map imports to additional lookup locations. */,
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
@@ -120,6 +121,6 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
-  "include": ["src", "config", "cypress", ".eslintrc.cjs"],
+  "include": ["src", "config", "cypress", ".eslintrc.cjs", "globals.d.ts"],
   "exclude": ["node_modules"]
 }

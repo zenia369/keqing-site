@@ -20,7 +20,7 @@ module.exports = {
     sourceType: 'module',
     project: true,
     tsconfigRootDir: __dirname,
-    extraFileExtensions: ['.js'],
+    extraFileExtensions: ['.js', '.ts'],
   },
   plugins: [
     'prettier',

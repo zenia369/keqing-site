@@ -95,12 +95,13 @@ module.exports = (mode) => {
         }),
       ],
       alias: {
-        '@': path.resolve(__dirname, '../../src/app'),
+        '@': path.resolve(__dirname, '../../'),
         '@Styles': path.resolve(__dirname, '../../src/shared/styles'),
         '@Shared': path.resolve(__dirname, '../../src/shared/js'),
         '@Lib': path.resolve(__dirname, '../../src/lib'),
         '@Util': path.resolve(__dirname, '../../src/shared/utils'),
-        '@UI': path.resolve(__dirname, '../../src/lib/ui/app'),
+        '@UI': path.resolve(__dirname, '../../src/lib/ui'),
+        '@Public': path.resolve(__dirname, '../../src/shared/icons'),
       },
     },
   }
