@@ -29,14 +29,14 @@ export class KQTooltip extends LitElement {
 
   render() {
     return html`
-      <div @mouseenter=${this.onClick} @mouseleave=${this.onClick}>
+      <div @mouseenter=${this.onHover} @mouseleave=${this.onHover}>
         <slot></slot>
         <p ?hidden=${!this.show}>${this.text}</p>
       </div>
     `
   }
 
-  private onClick() {
+  private onHover() {
     this.show = !this.show
   }
 }
