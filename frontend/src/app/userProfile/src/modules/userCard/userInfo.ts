@@ -1,26 +1,41 @@
 import { KFetchV1 } from '@Lib/k-fetch'
+import registerMessage from '@UI/Message/registerMessage'
 
 import { USER_CARD_NAMES } from '../../constants'
-import message from '../message'
+
+// eslint-disable-next-line import/no-cycle
+import { CardMediator } from './cardMediator'
 
 export default class ChangeUserInfo {
-  constructor(cardMediator) {
+  protected cardMediator!: CardMediator
+
+  private openBtn!: HTMLElement
+
+  private closeBtn!: HTMLElement
+
+  private userName!: HTMLElement
+
+  private userCity!: HTMLElement
+
+  private userElement!: HTMLElement
+
+  constructor(cardMediator: CardMediator) {
     this.cardMediator = cardMediator
     this.openBtn = cardMediator.rootCard.querySelector(
-      USER_CARD_NAMES.btn_open_setting
-    )
+      USER_CARD_NAMES.btnOpenSetting
+    ) as HTMLElement
     this.closeBtn = cardMediator.rootCard.querySelector(
-      USER_CARD_NAMES.root_form_close_setting
-    )
+      USER_CARD_NAMES.rootFormCloseSetting
+    ) as HTMLElement
     this.userName = cardMediator.rootCard.querySelector(
-      USER_CARD_NAMES.user_name
-    )
+      USER_CARD_NAMES.userName
+    ) as HTMLElement
     this.userCity = cardMediator.rootCard.querySelector(
-      USER_CARD_NAMES.user_city
-    )
+      USER_CARD_NAMES.userCity
+    ) as HTMLElement
     this.userElement = cardMediator.rootCard.querySelector(
-      USER_CARD_NAMES.user_element
-    )
+      USER_CARD_NAMES.userElement
+    ) as HTMLElement
   }
 
   #handleOpenSetting() {
@@ -32,13 +47,19 @@ export default class ChangeUserInfo {
     })
   }
 
-  async #handleSubmitSetting(event) {
+  async #handleSubmitSetting(event: Event) {
     event.preventDefault()
-    const { target } = event
+    const target = event.target as HTMLElement
 
-    const name = target[USER_CARD_NAMES.form_name]
-    const city = target[USER_CARD_NAMES.form_city]
-    const element = target[USER_CARD_NAMES.form_element]
+    const name = target.querySelector(
+      USER_CARD_NAMES.formName
+    ) as HTMLInputElement
+    const city = target.querySelector(
+      USER_CARD_NAMES.formCity
+    ) as HTMLInputElement
+    const element = target.querySelector(
+      USER_CARD_NAMES.formElement
+    ) as HTMLInputElement
 
     try {
       await KFetchV1.patch('profile/update_info', {
@@ -53,15 +74,23 @@ export default class ChangeUserInfo {
 
       this.cardMediator.cardForm.reset()
 
-      message('updated', 'ok')
+      registerMessage.add({
+        type: 'success',
+        text: 'updated',
+        time: 3000,
+      })
       this.cardMediator.handleReverseAnimation()
-    } catch (error) {
-      message(error.message ?? 'failed, try again', 'err')
+    } catch (error: any) {
+      registerMessage.add({
+        type: 'error',
+        text: error.message ?? 'opps, failed. try again',
+        time: 3000,
+      })
     }
   }
 
-  click(e) {
-    this.#handleOpenSetting(e)
+  click() {
+    this.#handleOpenSetting()
   }
 
   active() {

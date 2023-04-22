@@ -1,16 +1,22 @@
+// eslint-disable-next-line import/no-cycle
+import { StandMediatorType } from './standMediator'
 import { CHARACTERS_DATA_NAMES, USER_STAND_NAMES } from '../../constants'
 
 export default class UserStand {
-  #itemClassName = USER_STAND_NAMES.root_stand_item.replace('.', '')
+  private itemClassName = USER_STAND_NAMES.rootStandItem.replace('.', '')
 
-  constructor(standMediator) {
+  private standMediator!: StandMediatorType
+
+  private wrapGetTargetItem!: (node: HTMLElement) => HTMLElement
+
+  constructor(standMediator: StandMediatorType) {
     this.standMediator = standMediator
-    this.wrapGetTargetItem = (node) =>
-      standMediator.getTargetItem(node, this.#itemClassName)
+    this.wrapGetTargetItem = (node: HTMLElement) =>
+      standMediator.getTargetItem(node, this.itemClassName)
   }
 
-  #handleClickItem(event) {
-    const { target } = event
+  private handleClickItem(event: Event) {
+    const target = event.target as HTMLElement
 
     const item = this.wrapGetTargetItem(target)
 
@@ -18,16 +24,16 @@ export default class UserStand {
       this.standMediator.setState({
         activeIndex: item.dataset.id,
       })
-      this.standMediator.setUserStandActiveItem(item.dataset.id)
+      this.standMediator.setUserStandActiveItem(Number(item.dataset.id))
     } else {
       this.standMediator.setState({
-        activeIndex: item.dataset.id,
+        activeIndex: Number(item.dataset.id),
         initalStand: this.standMediator.rootUserStandItems.map(
           this.standMediator.getDataFromTargetItem
         ),
       })
 
-      this.standMediator.setUserStandActiveItem(item.dataset.id)
+      this.standMediator.setUserStandActiveItem(Number(item.dataset.id))
 
       this.standMediator.animationTL
         .to(window, {
@@ -52,12 +58,12 @@ export default class UserStand {
           },
           '<'
         )
-        .set(CHARACTERS_DATA_NAMES.root_stand, {
+        .set(CHARACTERS_DATA_NAMES.rootStand, {
           opacity: 0,
           translateX: -150,
         })
         .to(
-          CHARACTERS_DATA_NAMES.root_stand,
+          CHARACTERS_DATA_NAMES.rootStand,
           {
             display: 'block',
             translateX: 0,
@@ -77,7 +83,7 @@ export default class UserStand {
     }
   }
 
-  click(e) {
-    this.#handleClickItem(e)
+  click(e: Event) {
+    this.handleClickItem(e)
   }
 }
