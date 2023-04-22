@@ -38,5 +38,6 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'import/extensions': 'off',
     'no-underscore-dangle': 'off',
+    '@typescript-eslint/no-namespace': 'off',
   },
 }

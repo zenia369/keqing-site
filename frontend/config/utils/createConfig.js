@@ -4,6 +4,7 @@ const path = require('path')
 const MiniCss = require('mini-css-extract-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
+const WebpackBar = require('webpackbar')
 
 const generateEntries = require('./generateEntries')
 const generateHtmlTemplatePlugin = require('./generateHtmlTemplatePlugin')
@@ -45,6 +46,16 @@ module.exports = (mode) => {
       }),
       new CopyPlugin({
         patterns: [path.resolve(__dirname, '../../public')],
+      }),
+      new WebpackBar({
+        name: 'Keqing-site_FE',
+        color: '#41b883',
+        profile: true,
+        reporter: {
+          changeOverTime: true,
+          done: () => console.log('🎉 My Awesome Build compiled successfully!'),
+          allDone: () => console.log('🎉 All builds done!'),
+        },
       }),
       ...generateHtmlTemplatePlugin(),
     ],
