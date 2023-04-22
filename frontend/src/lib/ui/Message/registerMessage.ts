@@ -5,7 +5,11 @@ import { QueueType } from './message.models'
 export class RegisterMessage {
   private $el = document.createElement('kq-message')
 
-  create() {
+  constructor() {
+    this.create()
+  }
+
+  private create() {
     document.body.appendChild(this.$el)
   }
 
@@ -15,6 +19,5 @@ export class RegisterMessage {
 }
 
 const registerMessage = new RegisterMessage()
-registerMessage.create()
 
 export default registerMessage
