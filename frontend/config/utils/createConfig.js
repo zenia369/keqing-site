@@ -25,7 +25,7 @@ module.exports = (mode) => {
         ? 'static/js/chunk.[name].js'
         : 'static/js/chunk.[name].[hash:6].js',
       path: OUTPUT_PATH,
-      assetModuleFilename: 'static/[hash][ext][query]',
+      assetModuleFilename: 'static/assets/[hash][ext][query]',
     },
     devtool: isDev ? 'source-map' : false,
     plugins: [
@@ -92,7 +92,7 @@ module.exports = (mode) => {
           test: /\.hbs$/,
           loader: 'handlebars-loader',
           options: {
-            inlineRequires: '/img/',
+            inlineRequires: '/(img|audio)/',
             partialDirs: [path.resolve(__dirname, '../../src/shared/views')],
           },
         },
