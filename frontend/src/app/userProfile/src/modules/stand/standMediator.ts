@@ -158,7 +158,15 @@ class StandMediator {
       (i) => i.dataset.name === newData.name
     )
 
-    if (isExist && !isClear) return
+    if (isExist && !isClear) {
+      registerMessage.add({
+        type: 'warning',
+        time: 1500,
+        isForce: true,
+        text: `character ${newData.name} has already chosen`,
+      })
+      return
+    }
 
     const nodeItem = this.rootUserStandItems[nodeIndex]
     nodeItem
