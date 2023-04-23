@@ -18,17 +18,22 @@ const styles = css`
   }
 
   :host {
-    max-width: 500px;
-    max-height: 300px;
-    display: block;
     position: fixed;
     z-index: 999;
-    left: 50%;
-    top: 5%;
-    transform: translate(-50%, 0);
+    width: 100% !important;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
   }
 
   .wrapper {
+    position: sticky;
+    max-width: 500px;
+    max-height: 300px;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%, 0);
     background: var(--kq-purple-8);
     padding: 10px !important;
     border-radius: 5px;
@@ -43,8 +48,9 @@ const styles = css`
   .wrapper-hidden {
     animation: 0.3s ease-in-out animation-reverse;
     opacity: 0;
-    transform: translateY(-100px);
+    transform: translate(-50%, -100px);
     visibility: hidden;
+    pointer-events: none;
   }
 
   .wrapper__content {
@@ -93,6 +99,7 @@ const styles = css`
     width: 30px;
     height: 30px;
     transition: 0.3s ease scale;
+    pointer-events: all;
   }
 
   button:hover {
@@ -107,12 +114,12 @@ const styles = css`
   @keyframes animation-reverse {
     from {
       opacity: 1;
-      transform: translateY(0px);
+      transform: translate(-50%, 0);
       visibility: visible;
     }
     to {
       opacity: 0;
-      transform: translateY(-100px);
+      transform: translate(-50%, -100px);
       visibility: hidden;
     }
   }
@@ -120,12 +127,12 @@ const styles = css`
   @keyframes animation {
     from {
       opacity: 0;
-      transform: translateY(-100px);
+      transform: translate(-50%, -100px);
       visibility: hidden;
     }
     to {
       opacity: 1;
-      transform: translateY(0px);
+      transform: translate(-50%, 0);
       visibility: visible;
     }
   }
