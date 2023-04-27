@@ -20,9 +20,9 @@ export default class UserStand {
 
     const item = this.wrapGetTargetItem(target)
 
-    if (this.standMediator.getState().activeIndex) {
+    if (Number.isInteger(this.standMediator.getState().activeIndex)) {
       this.standMediator.setState({
-        activeIndex: item.dataset.id,
+        activeIndex: Number(item.dataset.id),
       })
       this.standMediator.setUserStandActiveItem(Number(item.dataset.id))
     } else {

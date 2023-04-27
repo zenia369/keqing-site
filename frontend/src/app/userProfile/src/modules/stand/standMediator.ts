@@ -22,14 +22,14 @@ type InitalStandType = {
 
 type InitalStateType = {
   initalStand: InitalStandType[]
-  activeIndex: number
+  activeIndex: number | null
 }
 
 export type StandMediatorType = StandMediator
 
 const initalState: InitalStateType = {
   initalStand: [],
-  activeIndex: 0,
+  activeIndex: null,
 }
 
 class StandMediator {
@@ -142,7 +142,7 @@ class StandMediator {
       node.classList.remove(USER_STAND_NAMES.activeStandItem)
     )
 
-    if (id) {
+    if (typeof id === 'number') {
       this.rootUserStandItems[id].classList.add(
         USER_STAND_NAMES.activeStandItem
       )
@@ -151,9 +151,11 @@ class StandMediator {
 
   setUserStandItemData(
     newData: InitalStandType,
-    nodeIndex = this.state.activeIndex,
+    nodeIndex = this.state.activeIndex as number,
     isClear = false
   ) {
+    if (!Number.isInteger(nodeIndex)) return
+
     const isExist = this.rootUserStandItems.find(
       (i) => i.dataset.name === newData.name
     )
