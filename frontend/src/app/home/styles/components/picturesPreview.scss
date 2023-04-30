@@ -45,7 +45,7 @@
     transform-style: preserve-3d;
     animation: 40s linear infinite rotateImages;
     &:hover {
-      animation-play-state: paused;
+      animation-play-state: paused !important;
     }
   }
   &__item {
