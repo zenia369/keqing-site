@@ -50,9 +50,14 @@ isProfile=true
     </div>
   </section>
   <section class="gallery">
-    {{#each pictures}}
-    <img role="button" src="{{this.path}}" alt="Teyvat picture by id: {{this.id}}" />
-    {{/each}}
+    <div class="gallery__list">
+      {{#each pictures}}
+      <img role="button" src="{{this.path}}" alt="Teyvat picture by id: {{this.id}}" />
+      {{/each}}
+    </div>
+    <div class="gallery__pagination">
+      <p>End of the list</p>
+    </div>
   </section>
   <section class="image-screen">
     <p class="image-screen__close">Закрити</p>
