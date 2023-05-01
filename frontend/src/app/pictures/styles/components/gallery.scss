@@ -1,16 +1,32 @@
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  align-content: flex-start;
-  & > img {
-    height: 25vh;
-    object-fit: cover;
-    flex-grow: 1;
-    transition: filter 0.2s ease-in;
-    cursor: pointer;
-    &:hover {
-      filter: brightness(0.5);
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-content: flex-start;
+    & > img {
+      height: 25vh;
+      object-fit: cover;
+      flex-grow: 1;
+      transition: filter 0.2s ease-in;
+      cursor: pointer;
+      &:hover {
+        filter: brightness(0.5);
+      }
+    }
+  }
+  &__pagination {
+    margin-top: 1rem;
+    p {
+      display: none;
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: 600;
+    }
+    &-active {
+      p {
+        display: block;
+      }
     }
   }
 }

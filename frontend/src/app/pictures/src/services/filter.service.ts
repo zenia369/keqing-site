@@ -36,7 +36,7 @@ class FilterService {
     isError: false,
     offset: 0,
     limit: 20,
-    count: 0,
+    count: 20,
     items: [],
     error: null,
     params: [],
@@ -45,12 +45,13 @@ class FilterService {
   constructor() {
     const urlData = new URLSearchParams(window.location.search)
     if (urlData.has('limit')) {
-      this.dataObserver$.subject.limit = Number(urlData.get('limit'))
+      this.dataObserver$.subject.limit = Number(urlData.get('limit')) ?? 20
+      this.dataObserver$.subject.count = Number(urlData.get('limit')) ?? 20
+
       urlData.delete('limit')
     }
-
     if (urlData.has('offset')) {
-      this.dataObserver$.subject.offset = Number(urlData.get('offset'))
+      this.dataObserver$.subject.offset = Number(urlData.get('offset')) ?? 0
       urlData.delete('offset')
     }
     urlData.forEach((value, key) => {

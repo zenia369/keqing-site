@@ -1,5 +1,7 @@
 export namespace CommonNodes {
-  export const gallery = '.gallery'
+  export const gallery = '.gallery__list'
+  export const galleryPagination = '.gallery__pagination'
+  export const galleryPaginationActiveClass = 'gallery__pagination-active'
   export const loader = '.loader-wrapper'
   export const loaderActiveClass = 'loader-wrapper-active'
 }
