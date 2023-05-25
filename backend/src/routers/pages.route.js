@@ -19,8 +19,9 @@ router.get('/', (req, res) =>
 )
 
 router.get('/myWife', (req, res) => res.redirect('/my-wife'))
-router.get('/my-wife', (req, res) =>
-  res.sendFile(path.resolve(ROOT_PAGE, './myWife/index.html'))
+router.get('/my-wife', (req, res) => res.redirect('/characters'))
+router.get('/characters', (req, res) =>
+  res.sendFile(path.resolve(ROOT_PAGE, './characters/index.html'))
 )
 
 router.get('/aboutMe', (req, res) => res.redirect('/about-me'))
