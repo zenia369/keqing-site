@@ -10,7 +10,8 @@
     "eslint": "eslint --ext .js src",
     "eslint:fix": "eslint --fix --ext .js src",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [
     "Keqing",

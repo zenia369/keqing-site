@@ -7,6 +7,7 @@
     "start": "cd backend && npm run start",
     "fe:start": "cd backend && start npm run start && cd ../frontend && start npm run start",
     "fe:test": "cd backend && start npm run start && cd ../frontend && start npm run cypress:open",
-    "be:watch": "cd backend && npm run dev"
+    "be:test": "cd backend && npm run test",
+    "be:start": "cd backend && npm run dev"
   }
 }
