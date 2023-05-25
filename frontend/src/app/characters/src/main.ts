@@ -13,9 +13,7 @@ const cardListNode = document.querySelector(Nodes.rootCardList) as HTMLElement
 class CardList {
   constructor(private store = charactersService.getObserver) {
     this.store.subscribe((data) => {
-      const list = [...data.images, ...data.images].map(
-        this.generateCards.bind(this)
-      )
+      const list = data.images.map(this.generateCards.bind(this))
 
       cardListNode.innerHTML = list.join('\n')
 
