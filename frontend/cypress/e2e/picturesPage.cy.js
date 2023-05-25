@@ -4,7 +4,7 @@ describe('Test pictures page', () => {
 
     cy.intercept('GET', '/api/v1/images/pictures*').as('images')
 
-    cy.get('.gallery').as('gallery')
+    cy.get('.gallery__list').as('gallery')
     cy.get('.image-screen').as('bigImage')
     cy.get('.filter_wrapp').as('filter')
     cy.get('.loader-wrapper').as('loader')
@@ -40,8 +40,8 @@ describe('Test pictures page', () => {
   it('#filter should working', () => {
     cy.get('@filter')
       .find('.filter__options__item_wrapp')
-      .each(($list) => {
-        cy.wrap($list).children().first().click()
+      .each(async ($list) => {
+        await cy.wrap($list).children().first().realClick()
       })
       .then(($childrens) => {
         cy.get('@filter')
