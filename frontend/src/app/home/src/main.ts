@@ -4,6 +4,7 @@ import '@UI/Tooltip'
 import '@Shared/userAvatar'
 import { viewObserver } from '@Lib/k-view-observer'
 
+import './animation'
 import './modules/galleryImages'
 
 import { GalleryNodes, PictureNodes } from './constants'
