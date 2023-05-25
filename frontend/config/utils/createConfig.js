@@ -20,10 +20,10 @@ module.exports = (mode) => {
     output: {
       filename: isDev
         ? 'static/js/main.[name].js'
-        : 'static/js/main.[name].[hash:6].bundle.js',
+        : 'static/js/main.[name].[chunkhash:6].bundle.js',
       chunkFilename: isDev
         ? 'static/js/chunk.[name].js'
-        : 'static/js/chunk.[name].[hash:6].js',
+        : 'static/js/chunk.[name].[chunkhash:6].js',
       path: OUTPUT_PATH,
       assetModuleFilename: 'static/assets/[hash][ext][query]',
     },
@@ -36,12 +36,12 @@ module.exports = (mode) => {
           }
           return isDev
             ? 'static/styles/style.[name].css'
-            : 'static/styles/style.[name].[hash:6].min.css'
+            : 'static/styles/style.[name].[chunkhash:6].min.css'
         },
         chunkFilename: () => {
           return isDev
             ? 'static/styles/style.chunk.[name].css'
-            : 'static/styles/style.chunk.[name].[hash:6].min.css'
+            : 'static/styles/style.chunk.[name].[chunkhash:6].min.css'
         },
       }),
       new CopyPlugin({
