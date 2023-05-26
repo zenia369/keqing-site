@@ -14,7 +14,6 @@ const createHTMLPlugin = (file) => {
 
   return new HtmlWebpackPlugin({
     template: fileData.path,
-    inject: 'body',
     chunks: [fileData.name.toString()],
     filename: `pages/${fileData.name}/index.html`,
   })
