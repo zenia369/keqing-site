@@ -21,8 +21,8 @@ const character = async (req, res) => {
       get_character_images(name),
     ])
 
-    res.render(path.resolve(__dirname, '../../../client/views/wife.hbs'), {
-      layout: 'layout-wife',
+    res.render(path.resolve(__dirname, '../../../client/views/character.hbs'), {
+      layout: 'layout-character',
       name,
       images: data[1],
       ...data[0],
